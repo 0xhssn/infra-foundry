@@ -1,0 +1,7 @@
+dist/
+node_modules/
+*.log
+
+examples/**/node_modules/
+examples/**/dist/
+examples/**/*.log

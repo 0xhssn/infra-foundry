@@ -1,0 +1,65 @@
+{
+  "name": "@dopetech/cloudforge",
+  "version": "0.3.0",
+  "description": "🌪️ Cloud infrastructure components library for modern applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "cloud",
+    "infrastructure",
+    "pulumi",
+    "aws",
+    "cloudflare",
+    "components",
+    "iac"
+  ],
+  "contributors": [
+    {
+      "name": "Hamza Hassan",
+      "github": "https://github.com/0xhssn"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DopeTechLLC/CloudForge.git"
+  },
+  "homepage": "https://github.com/DopeTechLLC/CloudForge#readme",
+  "bugs": {
+    "url": "https://github.com/DopeTechLLC/CloudForge/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@pulumi/aws": "^6.82.1",
+    "@pulumi/awsx": "^2.21.1",
+    "@pulumi/cloudflare": "^6.2.0",
+    "@pulumi/pulumi": "^3.174.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "postinstall": "yarn build",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo 'No tests yet'",
+    "test:watch": "echo 'No tests yet'"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
