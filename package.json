@@ -1,5 +1,5 @@
 {
-  "name": "@dopetech/cloudforge",
+  "name": "cloudforge",
   "version": "0.3.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
