@@ -13,7 +13,7 @@ import {
 import { EcsServiceConfig, VpcConfig } from './types'
 import { createRoute53AliasRecord } from '../route53/service'
 import { addEnvSuffix } from '../utils/addEnvSuffix'
-import { mapToNameValuePairs } from '../utils/mapToNameValuePairs'
+import { mapToNameValuePairs } from '../utils/environment'
 
 export class EcsCluster extends ComponentResource {
   public readonly cluster: aws.ecs.Cluster

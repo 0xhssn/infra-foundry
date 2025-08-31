@@ -1,5 +1,5 @@
 {
-  "name": "@dopetech/cloudforge",
+  "name": "cloudforge",
   "version": "0.3.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
@@ -25,11 +25,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/DopeTechLLC/CloudForge.git"
+    "url": "https://github.com/0xhssn/cloudforge.git"
   },
-  "homepage": "https://github.com/DopeTechLLC/CloudForge#readme",
+  "homepage": "https://github.com/0xhssn/cloudforge#readme",
   "bugs": {
-    "url": "https://github.com/DopeTechLLC/CloudForge/issues"
+    "url": "https://github.com/0xhssn/cloudforge/issues"
   },
   "license": "MIT",
   "dependencies": {

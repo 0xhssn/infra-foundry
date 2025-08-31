@@ -10,7 +10,7 @@ export * as image from './image'
 export * as secret from './secret'
 
 export * as domainUtils from './utils/domain'
-export * as envUtils from './utils/mapToNameValuePairs'
+export * as EnvironmentUtils from './utils/environment'
 
 export { addEnvSuffix } from './utils/addEnvSuffix'
 export { commonTags } from './utils/commonTags'

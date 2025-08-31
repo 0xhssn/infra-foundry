@@ -19,15 +19,6 @@ Before you begin, ensure you have the following installed:
 
 1. **Fork and Clone**
 
-   ```bash
-   # Fork the repository on GitHub, then clone your fork
-   git clone git@github.com:YOUR_USERNAME/CloudForge.git
-   cd CloudForge
-
-   # Add upstream remote
-   git remote add upstream git@github.com:DopeTechLLC/CloudForge.git
-   ```
-
 2. **Install Dependencies**
 
    ```bash
@@ -72,7 +63,7 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project directory (e.g., MFS or a new test project)
-   yarn link @dopetech/cloudforge
+   yarn link 0xhssn/cloudforge
    ```
 
 3. **Test Your Changes**
@@ -91,7 +82,7 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project
-   yarn unlink @dopetech/cloudforge
+   yarn unlink 0xhssn/cloudforge
 
    # In CloudForge directory
    yarn unlink
@@ -114,7 +105,7 @@ Use this method to test changes as they would be consumed by end users.
 
    ```bash
    # In your test project
-   yarn add git+ssh://git@github.com:YOUR_USERNAME/CloudForge.git#feature/your-feature-name
+   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git#feature/your-feature-name
    ```
 
 3. **Test the Changes**
@@ -127,7 +118,7 @@ Use this method to test changes as they would be consumed by end users.
 4. **Revert to Main When Done**
    ```bash
    # Switch back to main branch
-   yarn add git+ssh://git@github.com:DopeTechLLC/CloudForge.git
+   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git
    ```
 
 ## 🏗️ Development Workflow
@@ -281,7 +272,7 @@ CloudForge follows [Semantic Versioning](https://semver.org/):
 
 ## 🆘 Getting Help
 
-- **Issues**: Check [existing issues](https://github.com/DopeTechLLC/CloudForge/issues) or create a new one
+- **Issues**: Check [existing issues](https://github.com/0xhssn/cloudforge.git/issues) or create a new one
 - **Discussions**: Use GitHub Discussions for questions and ideas
 - **Documentation**: Refer to component README files and main documentation
 

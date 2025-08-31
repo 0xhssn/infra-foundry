@@ -1,40 +1,32 @@
 import { iam } from '@pulumi/aws'
 import { ComponentResource } from '@pulumi/pulumi'
-
-import { AmplifyDomainRolePolicy, AmplifyCicdRolePolicy } from './types'
 import { commonTags } from '../utils/commonTags'
 
-export function setupAmplifyDomainRole(
-  environmentScopedName: string,
-  parent: ComponentResource,
-): AmplifyDomainRolePolicy {
-  const amplifyDomainRole = new iam.Role(
-    `${environmentScopedName}-amplify-domain-role`,
+export function createAmplifyServiceRole(name: string, parent: ComponentResource) {
+  const role = new iam.Role(
+    `${name}-amplify-service-role`,
     {
+      name: `${name}-amplify-service-role`,
       assumeRolePolicy: JSON.stringify({
         Version: '2012-10-17',
         Statement: [
           {
-            Action: 'sts:AssumeRole',
             Effect: 'Allow',
-            Principal: {
-              Service: 'amplify.amazonaws.com',
-            },
+            Principal: { Service: 'amplify.amazonaws.com' },
+            Action: 'sts:AssumeRole',
           },
         ],
       }),
-      managedPolicyArns: ['arn:aws:iam::aws:policy/service-role/AmplifyBackendDeployFullAccess'],
-      tags: {
-        ...commonTags,
-        Component: 'IAMRole',
-      },
+      managedPolicyArns: [iam.ManagedPolicy.AmplifyBackendDeployFullAccess],
+      tags: { ...commonTags, Component: 'AmplifyServiceRole' },
     },
     { parent },
   )
 
-  const amplifyDomainPolicy = new iam.Policy(
-    `${environmentScopedName}-amplify-domain-policy`,
+  const domainsPolicy = new iam.Policy(
+    `${name}-amplify-domains-policy`,
     {
+      name: `${name}-amplify-domains-policy`,
       policy: JSON.stringify({
         Version: '2012-10-17',
         Statement: [
@@ -60,59 +52,22 @@ export function setupAmplifyDomainRole(
             ],
             Resource: '*',
           },
-        ],
-      }),
-    },
-    { parent },
-  )
-
-  new iam.RolePolicyAttachment(
-    `${environmentScopedName}-amplify-domain-policy-attachment`,
-    {
-      role: amplifyDomainRole.name,
-      policyArn: amplifyDomainPolicy.arn,
-    },
-    { parent: amplifyDomainRole },
-  )
-
-  return {
-    amplifyDomainRole,
-    amplifyDomainPolicy,
-  }
-}
-
-export function setupAmplifyCicdPolicy(
-  environmentScopedName: string,
-  parent: ComponentResource,
-): AmplifyCicdRolePolicy {
-  const cicdRole = new iam.Role(
-    `${environmentScopedName}-cicd-role`,
-    {
-      name: `${environmentScopedName}-cicd-role`,
-      assumeRolePolicy: JSON.stringify({
-        Version: '2012-10-17',
-        Statement: [
           {
             Effect: 'Allow',
-            Principal: {
-              Service: 'amplify.amazonaws.com',
-            },
-            Action: 'sts:AssumeRole',
+            Action: ['cloudfront:CreateInvalidation'],
+            Resource: '*',
           },
         ],
       }),
-      tags: {
-        ...commonTags,
-        Component: 'IAM',
-      },
+      tags: { ...commonTags, Component: 'AmplifyDomainsPolicy' },
     },
-    { parent },
+    { parent: role },
   )
 
   const amplifyPolicy = new iam.Policy(
-    `${environmentScopedName}-amplify-policy`,
+    `${name}-amplify-policy`,
     {
-      name: `${environmentScopedName}-amplify-policy`,
+      name: `${name}-amplify-policy`,
       policy: JSON.stringify({
         Version: '2012-10-17',
         Statement: [
@@ -134,21 +89,29 @@ export function setupAmplifyCicdPolicy(
           },
         ],
       }),
+      tags: { ...commonTags, Component: 'AmplifyPolicy' },
     },
     { parent },
   )
 
+  
   new iam.RolePolicyAttachment(
-    `${environmentScopedName}-amplify-policy-attachment`,
+    `${name}-amplify-domains-policy-attachment`,
     {
-      role: cicdRole.name,
+      role: role.name,
+      policyArn: domainsPolicy.arn,
+    },
+    { parent: role },
+  )
+  
+  new iam.RolePolicyAttachment(
+    `${name}-amplify-policy-attachment`,
+    {
+      role: role.name,
       policyArn: amplifyPolicy.arn,
     },
-    { parent: cicdRole },
+    { parent: role },
   )
-
-  return {
-    amplifyCicdRole: cicdRole,
-    amplifyCicdPolicy: amplifyPolicy,
-  }
+  
+  return { amplifyServiceRole: role, domainsPolicy }
 }

@@ -25,12 +25,12 @@ Current version: **0.3.0**
 
   ```bash
   # Install directly from GitHub
-  yarn add git+ssh://git@github.com/DopeTechLLC/CloudForge.git
+  yarn add git+ssh://git@github.com/0xhssn/cloudforge.git
 
   # or add as dependency in package.json
   "dependencies": {
     ...
-    "@dopetech/cloudforge": "git+ssh://git@github.com/DopeTechLLC/CloudForge.git",
+    "cloudforge": "git+ssh://git@github.com/0xhssn/cloudforge.git",
     ...
   }
   # and then install
@@ -94,8 +94,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/DopeTechLLC/CloudForge.git
-cd CloudForge
+git clone https://github.com/0xhssn/cloudforge.git
+cd cloudforge
 
 # Install dependencies
 yarn install
@@ -161,11 +161,10 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/DopeTechLLC/CloudForge#readme)
-- [Issue Tracker](https://github.com/DopeTechLLC/CloudForge/issues)
+- [Documentation](https://github.com/0xhssn/cloudforge.git#readme)
+- [Issue Tracker](https://github.com/0xhssn/cloudforge.git/issues)
 - [Pulumi Documentation](https://www.pulumi.com/docs/)
-- [DopeTech](https://dopetech.com)
 
 ---
 
-Built with ❤️ by [DopeTech](https://dopetech.com)
+Built with ❤️ by [Hamza Hassan](https://linkedin.com/in/hhssnn)

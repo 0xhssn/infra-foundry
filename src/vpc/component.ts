@@ -30,7 +30,7 @@ export class Vpc extends ComponentResource {
       {
         cidrBlock: '10.0.0.0/16',
         numberOfAvailabilityZones: 2,
-        natGateways: { strategy: "None" },
+        natGateways: { strategy: 'None' },
         enableDnsSupport: true,
         enableDnsHostnames: true,
         tags: commonTags,
