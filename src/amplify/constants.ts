@@ -1,6 +1,5 @@
-export function createMonorepoBuildSpec(appRoot?: string): string {
-  if (appRoot && appRoot !== '.') {
-    // Monorepo configuration with applications key
+export function createMonorepoBuildSpec(appRoot: string): string {
+  if (appRoot !== '.') {
     return `
       version: 1
       applications:
