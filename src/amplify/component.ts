@@ -26,7 +26,7 @@ export class AmplifyApp extends ComponentResource {
   ) {
     super('cloudforge:amplify:AmplifyApp', name, {}, opts)
 
-    const { amplifyServiceRole } = createAmplifyServiceRole(name, this)
+    const amplifyServiceRole = createAmplifyServiceRole(name, this)
 
     this.app = new amplify.App(
       `${name}-app`,
@@ -44,7 +44,7 @@ export class AmplifyApp extends ComponentResource {
           AMPLIFY_MONOREPO_APP_ROOT: appRoot,
           _LIVE_UPDATES:
             '[{"name":"Amplify CLI","pkg":"@aws-amplify/cli","type":"npm","version":"latest"}]',
-          ...environmentVariables,
+          ...(environmentVariables ?? {}),
         },
         tags: {
           ...commonTags,

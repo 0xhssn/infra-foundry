@@ -112,6 +112,6 @@ export function createAmplifyServiceRole(name: string, parent: ComponentResource
     },
     { parent: role },
   )
-  
-  return { amplifyServiceRole: role, domainsPolicy }
+
+  return role
 }
