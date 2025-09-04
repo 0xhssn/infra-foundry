@@ -1,5 +1,6 @@
 import { iam } from '@pulumi/aws'
 import { ComponentResource } from '@pulumi/pulumi'
+
 import { commonTags } from '../utils/commonTags'
 
 export function createAmplifyServiceRole(name: string, parent: ComponentResource) {
@@ -94,7 +95,6 @@ export function createAmplifyServiceRole(name: string, parent: ComponentResource
     { parent },
   )
 
-  
   new iam.RolePolicyAttachment(
     `${name}-amplify-domains-policy-attachment`,
     {
@@ -103,7 +103,7 @@ export function createAmplifyServiceRole(name: string, parent: ComponentResource
     },
     { parent: role },
   )
-  
+
   new iam.RolePolicyAttachment(
     `${name}-amplify-policy-attachment`,
     {

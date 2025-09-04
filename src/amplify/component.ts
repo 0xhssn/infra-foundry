@@ -39,8 +39,8 @@ export class AmplifyApp extends ComponentResource {
         platform: 'WEB_COMPUTE',
         environmentVariables: {
           NODE_ENV: context.environment,
-          AMPLIFY_DIFF_DEPLOY: 'true', 
-          AMPLIFY_DIFF_DEPLOY_ROOT: appRoot, 
+          AMPLIFY_DIFF_DEPLOY: 'true',
+          AMPLIFY_DIFF_DEPLOY_ROOT: appRoot,
           AMPLIFY_MONOREPO_APP_ROOT: appRoot,
           _LIVE_UPDATES:
             '[{"name":"Amplify CLI","pkg":"@aws-amplify/cli","type":"npm","version":"latest"}]',
