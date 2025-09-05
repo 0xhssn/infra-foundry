@@ -1,21 +1,21 @@
-import { amplify } from '@pulumi/aws'
 import { iam } from '@pulumi/aws'
-import { Output } from '@pulumi/pulumi'
+
+import { EnvironmentVariablesType } from '../utils/environment'
 
 export interface AmplifyAppConfig {
-  appName: string
-  repositoryUrl: string
+  name: string
+  appRoot?: string
+  repository: string
+
   branchName: string
-  backendApiUrl: Output<string>
-  buildSpec?: string
+  domainName?: string
+
   githubAccessToken: string
+  environmentVariables?: EnvironmentVariablesType
 }
 
 export interface AmplifyDomainAssociationConfig {
-  app: amplify.App
-  appName: string
   domainName: string
-  branch: amplify.Branch
 }
 
 export interface AmplifyDomainRolePolicy {
