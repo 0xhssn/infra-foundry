@@ -25,7 +25,6 @@ export class AmplifyApp extends ComponentResource {
     opts?: ComponentResourceOptions,
   ) {
     super('cloudforge:amplify:AmplifyApp', name, {}, opts)
-
     const amplifyServiceRole = createAmplifyServiceRole(name, this)
 
     this.app = new amplify.App(
@@ -63,7 +62,10 @@ export class AmplifyApp extends ComponentResource {
         enableAutoBuild: false,
         framework: 'Next.js - SSR',
         stage: context.isProduction ? 'PRODUCTION' : 'DEVELOPMENT',
-        environmentVariables,
+        environmentVariables: {
+          NODE_ENV: context.environment,
+          ...(environmentVariables ?? {}),
+        },
         tags: {
           ...commonTags,
           Component: 'AmplifyBranch',
