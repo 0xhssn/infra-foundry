@@ -60,7 +60,7 @@ export class AmplifyApp extends ComponentResource {
       {
         appId: this.app.id,
         branchName,
-        enableAutoBuild: true,
+        enableAutoBuild: false,
         framework: 'Next.js - SSR',
         stage: context.isProduction ? 'PRODUCTION' : 'DEVELOPMENT',
         environmentVariables,
