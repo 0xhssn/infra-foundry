@@ -3,7 +3,7 @@ export function createMonorepoBuildSpec(appRoot: string): string {
     return `
       version: 1
       applications:
-        - appRoot: ${appRoot}
+        - appRoot: "${appRoot}"
           frontend:
             phases:
               preBuild:
