@@ -15,6 +15,7 @@ export interface AmplifyAppConfig {
 }
 
 export interface AmplifyDomainAssociationConfig {
+  name: string
   domainName: string
 }
 

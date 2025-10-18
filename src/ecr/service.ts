@@ -10,11 +10,13 @@ export function buildImageUri(repo: EcrRepository, imageTag?: string) {
   return repo.getLatestImageUri()
 }
 
-export function fetchEcrRegistryAuthorization(): Output<{
+export interface EcrRegistryAuthorization {
   server: string
   username: Output<string>
   password: Output<string>
-}> {
+}
+
+export function fetchEcrRegistryAuthorization(): Output<EcrRegistryAuthorization> {
   const creds = ecr.getAuthorizationTokenOutput()
   return creds.proxyEndpoint.apply((endpoint) => ({
     server: endpoint,

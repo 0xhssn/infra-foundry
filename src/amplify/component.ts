@@ -41,8 +41,10 @@ export class AmplifyApp extends ComponentResource {
           AMPLIFY_DIFF_DEPLOY: 'true',
           AMPLIFY_DIFF_DEPLOY_ROOT: appRoot,
           AMPLIFY_MONOREPO_APP_ROOT: appRoot,
+
           _LIVE_UPDATES:
             '[{"name":"Amplify CLI","pkg":"@aws-amplify/cli","type":"npm","version":"latest"}]',
+
           ...(environmentVariables ?? {}),
         },
         tags: {
@@ -59,11 +61,15 @@ export class AmplifyApp extends ComponentResource {
       {
         appId: this.app.id,
         branchName,
-        enableAutoBuild: false,
+        enableAutoBuild: true,
         framework: 'Next.js - SSR',
         stage: context.isProduction ? 'PRODUCTION' : 'DEVELOPMENT',
         environmentVariables: {
           NODE_ENV: context.environment,
+          AMPLIFY_MONOREPO_APP_ROOT: appRoot,
+          AMPLIFY_DIFF_DEPLOY: 'true',
+          AMPLIFY_DIFF_DEPLOY_ROOT: appRoot,
+
           ...(environmentVariables ?? {}),
         },
         tags: {
@@ -78,7 +84,7 @@ export class AmplifyApp extends ComponentResource {
     )
 
     if (domainName) {
-      this.domainAssociation = this.createDomainAssociation({ domainName })
+      this.domainAssociation = this.createDomainAssociation({ name: `${name}-app`, domainName })
     }
 
     this.registerOutputs({
@@ -89,10 +95,11 @@ export class AmplifyApp extends ComponentResource {
   }
 
   private createDomainAssociation({
+    name,
     domainName,
   }: AmplifyDomainAssociationConfig): amplify.DomainAssociation {
     return new amplify.DomainAssociation(
-      `${this.app.name}-domain`,
+      `${name}-domain`,
       {
         domainName,
         appId: this.app.id,

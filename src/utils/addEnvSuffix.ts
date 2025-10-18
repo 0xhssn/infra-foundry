@@ -7,6 +7,6 @@ import { context } from './context'
  * @example
  * addEnvSuffix("admin-portal") // returns "admin-portal-dev" (if environment is "dev")
  */
-export function addEnvSuffix(name: string) {
-  return name + (!context.isProduction ? `-${context.environment}` : '')
+export function addEnvSuffix(name: string, useUnderscore?: boolean) {
+  return name + (!context.isProduction ? `${useUnderscore ? '_' : '-'}${context.environment}` : '')
 }
