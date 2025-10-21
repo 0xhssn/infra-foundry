@@ -9,8 +9,7 @@ export function createMonorepoBuildSpec(appRoot: string, { installPlaywright = f
               preBuild:
                 commands:
                   - yarn install --frozen-lockfile
-                  ${installPlaywright ? `- yarn playwright install-deps
-                  - yarn playwright install chromium` : ''}
+                  ${installPlaywright ? `- yarn playwright install chromium` : ''}
               build:
                 commands:
                   - yarn build
@@ -36,8 +35,7 @@ export function createMonorepoBuildSpec(appRoot: string, { installPlaywright = f
           preBuild:
             commands:
               - yarn install --frozen-lockfile
-              ${installPlaywright ? `- yarn playwright install-deps
-              - yarn playwright install chromium` : ''}
+              ${installPlaywright ? `- yarn playwright install chromium` : ''}
           build:
             commands:
               - yarn build
