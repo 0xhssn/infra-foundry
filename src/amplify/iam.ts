@@ -95,6 +95,39 @@ export function createAmplifyServiceRole(name: string, parent: ComponentResource
     { parent },
   )
 
+  const logsPolicy = new iam.Policy(
+    `${name}-amplify-logs-policy`,
+    {
+      name: `${name}-amplify-logs-policy`,
+      policy: JSON.stringify({
+        Version: '2012-10-17',
+        Statement: [
+          {
+            Effect: 'Allow',
+            Action: [
+              'logs:CreateLogGroup',
+              'logs:CreateLogStream',
+              'logs:PutLogEvents',
+              'logs:DescribeLogStreams',
+              'logs:PutRetentionPolicy',
+            ],
+            Resource: [
+              'arn:aws:logs:*:*:log-group:/aws/amplify/*',
+              'arn:aws:logs:*:*:log-group:/aws/amplify/*:log-stream:*',
+            ],
+          },
+          {
+            Effect: 'Allow',
+            Action: ['logs:DescribeLogGroups'],
+            Resource: '*',
+          },
+        ],
+      }),
+      tags: { ...commonTags, Component: 'AmplifyLogsPolicy' },
+    },
+    { parent: role },
+  )
+
   new iam.RolePolicyAttachment(
     `${name}-amplify-domains-policy-attachment`,
     {
@@ -109,6 +142,15 @@ export function createAmplifyServiceRole(name: string, parent: ComponentResource
     {
       role: role.name,
       policyArn: amplifyPolicy.arn,
+    },
+    { parent: role },
+  )
+
+  new iam.RolePolicyAttachment(
+    `${name}-amplify-logs-policy-attachment`,
+    {
+      role: role.name,
+      policyArn: logsPolicy.arn,
     },
     { parent: role },
   )
