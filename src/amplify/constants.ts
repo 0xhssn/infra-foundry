@@ -1,5 +1,5 @@
-export function createMonorepoBuildSpec(appRoot: string): string {
-  if (appRoot !== '.') {
+export function createMonorepoBuildSpec(appRoot: string, { installPlaywright = false }: { installPlaywright?: boolean } = {}): string {
+  if (appRoot !== '.' && installPlaywright) {
     return `
       version: 1
       applications:
@@ -9,6 +9,8 @@ export function createMonorepoBuildSpec(appRoot: string): string {
               preBuild:
                 commands:
                   - yarn install --frozen-lockfile
+                  ${installPlaywright ? `- yarn playwright install-deps
+                  - yarn playwright install chromium` : ''}
               build:
                 commands:
                   - yarn build
@@ -34,6 +36,8 @@ export function createMonorepoBuildSpec(appRoot: string): string {
           preBuild:
             commands:
               - yarn install --frozen-lockfile
+              ${installPlaywright ? `- yarn playwright install-deps
+              - yarn playwright install chromium` : ''}
           build:
             commands:
               - yarn build
