@@ -21,7 +21,6 @@ export class AmplifyApp extends ComponentResource {
       branchName,
       domainName,
       environmentVariables,
-      installPlaywright = false,
     }: AmplifyAppConfig,
     opts?: ComponentResourceOptions,
   ) {
@@ -35,7 +34,7 @@ export class AmplifyApp extends ComponentResource {
         repository,
         iamServiceRoleArn: amplifyServiceRole.arn,
         accessToken: githubAccessToken,
-        buildSpec: createMonorepoBuildSpec(appRoot, { installPlaywright }),
+        buildSpec: createMonorepoBuildSpec(appRoot),
         platform: 'WEB_COMPUTE',
         environmentVariables: {
           NODE_ENV: context.environment,

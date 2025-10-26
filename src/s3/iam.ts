@@ -7,9 +7,7 @@ export function attachS3PolicyToRole(
   bucketNames: (Output<string> | string)[],
   parent: ComponentResource,
 ) {
-  const resolvedBucketNames = output(bucketNames)
-
-  const s3Policy = resolvedBucketNames.apply((resolvedNames) => {
+  const s3Policy = output(bucketNames).apply((resolvedNames) => {
     const resources = resolvedNames.flatMap((name) => [
       `arn:aws:s3:::${name}`,
       `arn:aws:s3:::${name}/*`,
