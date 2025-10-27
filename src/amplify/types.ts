@@ -10,8 +10,6 @@ export interface AmplifyAppConfig {
   branchName: string
   domainName?: string
 
-  installPlaywright?: boolean
-
   githubAccessToken: string
   environmentVariables?: EnvironmentVariablesType
 }

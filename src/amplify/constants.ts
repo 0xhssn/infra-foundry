@@ -9,8 +9,6 @@ export function createMonorepoBuildSpec(appRoot: string): string {
               preBuild:
                 commands:
                   - yarn install --frozen-lockfile
-                  - yarn playwright install-deps
-                  - yarn playwright install chromium
               build:
                 commands:
                   - yarn build
