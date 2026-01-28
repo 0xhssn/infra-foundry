@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "cloud",
@@ -32,14 +33,29 @@
     "url": "https://github.com/0xhssn/cloudforge/issues"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@pulumi/aws": "^6.0.0",
+    "@pulumi/awsx": "^2.0.0",
+    "@pulumi/cloudflare": "^6.0.0",
+    "@pulumi/pulumi": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@pulumi/cloudflare": {
+      "optional": true
+    }
+  },
   "dependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
     "@pulumi/aws": "^6.82.1",
     "@pulumi/awsx": "^2.21.1",
     "@pulumi/cloudflare": "^6.2.0",
     "@pulumi/pulumi": "^3.174.0",
-    "typescript": "^5.0.0"
-  },
-  "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
@@ -51,7 +67,8 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "postinstall": "yarn build",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "yarn clean && yarn build && yarn lint",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write .",
