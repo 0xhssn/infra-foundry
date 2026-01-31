@@ -70,9 +70,13 @@ export class S3Bucket extends ComponentResource {
   }
 
   private createOriginAccessIdentity(name: string): cloudfront.OriginAccessIdentity {
-    return new cloudfront.OriginAccessIdentity(`${name}-assets-oai`, {
-      comment: `OAI for ${name} assets`,
-    }, { parent: this })
+    return new cloudfront.OriginAccessIdentity(
+      `${name}-assets-oai`,
+      {
+        comment: `OAI for ${name} assets`,
+      },
+      { parent: this },
+    )
   }
 
   private createBucketPolicy(
