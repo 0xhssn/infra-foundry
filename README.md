@@ -143,6 +143,43 @@ ssh-keygen -t ed25519 -C "your_name@flatout.solutions" -f ~/.ssh/ci_deploy_key
 - Copy the content of `~/.ssh/ci_deploy_key.pub` (the public key)
 - Share this public key with contributors of this repository
 
+## 🚀 Release Automation
+
+CloudForge uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
+
+### How It Works
+
+1. **Commit Analysis**: Commits are analyzed to determine the next version bump
+2. **Changelog Generation**: CHANGELOG.md is automatically updated
+3. **NPM Publishing**: Package is published to npm registry
+4. **GitHub Release**: A GitHub release is created with release notes
+
+### Release Channels
+
+| Branch  | Channel     | Example Version |
+| ------- | ----------- | --------------- |
+| `main`  | Stable      | `1.2.3`         |
+| `beta`  | Pre-release | `1.2.3-beta.1`  |
+| `alpha` | Pre-release | `1.2.3-alpha.1` |
+
+### Setting Up NPM_TOKEN
+
+To enable automated npm publishing, add the `NPM_TOKEN` secret to your repository:
+
+1. Go to [npmjs.com](https://www.npmjs.com/) → Access Tokens
+2. Generate New Token → Select "Automation" type
+3. Copy the token
+4. In GitHub: Repository → Settings → Secrets and variables → Actions
+5. Add new secret: Name = `NPM_TOKEN`, Value = your token
+
+### Version Bump Rules
+
+| Commit Type     | Example                  | Version Bump  |
+| --------------- | ------------------------ | ------------- |
+| Breaking change | `feat(s3)!: ...`         | Major (1.0.0) |
+| Feature         | `feat(ecs): ...`         | Minor (0.1.0) |
+| Fix             | `fix(amplify): ...`      | Patch (0.0.1) |
+
 ## 📖 Examples
 
 Check out the [examples directory](./examples) for complete infrastructure setups:
