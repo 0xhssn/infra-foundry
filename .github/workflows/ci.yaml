@@ -1,4 +1,4 @@
-name: CI
+name: 🌪️ CloudForge CI
 
 on:
   push:
@@ -13,79 +13,104 @@ on:
       - alpha
 
 jobs:
-  build:
-    name: Build and Lint
+  quality-checks:
+    name: 🔍 Quality Checks
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 📦 Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: yarn
+          node-version: '20.x'
+          cache: 'yarn'
 
-      - name: Install dependencies
+      - name: 🧶 Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Lint
-        run: yarn lint
+      - name: 🧹 Check linting
+        run: |
+          echo "🔍 Running ESLint..."
+          yarn lint
 
-      - name: Format check
-        run: yarn format:check
+      - name: 💅 Check formatting
+        run: |
+          echo "✨ Checking code formatting..."
+          yarn format:check
 
-      - name: Build
-        run: yarn build
+      - name: 🏗️ Build project
+        run: |
+          echo "🔨 Building CloudForge..."
+          yarn build
+
+      - name: ✅ All checks passed!
+        run: echo "🎉 All quality checks completed successfully!"
 
   commitlint:
-    name: Validate Commits
+    name: 📝 Validate Commits
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
 
     steps:
-      - name: Checkout
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: 📦 Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: yarn
+          node-version: '20.x'
+          cache: 'yarn'
 
-      - name: Install dependencies
+      - name: 🧶 Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Validate commits
+      - name: 🔍 Validate commits
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
   release-preview:
-    name: Release Preview
+    name: 🔮 Release Preview
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
 
     steps:
-      - name: Checkout
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: 📦 Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: yarn
+          node-version: '20.x'
+          cache: 'yarn'
 
-      - name: Install dependencies
+      - name: 🧶 Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
+      - name: 🏗️ Build
         run: yarn build
 
-      - name: Preview release
+      - name: 🔮 Preview release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn semantic-release:dry-run
+
+  pr-status:
+    name: 📊 PR Status
+    runs-on: ubuntu-latest
+    needs: [quality-checks, commitlint]
+    if: always() && github.event_name == 'pull_request'
+
+    steps:
+      - name: 🎯 Check results
+        run: |
+          if [ "${{ needs.quality-checks.result }}" == "success" ] && [ "${{ needs.commitlint.result }}" == "success" ]; then
+            echo "✅ All checks passed! Ready for review 🚀"
+          else
+            echo "❌ Some checks failed. Please fix the issues above 🔧"
+            exit 1
+          fi
