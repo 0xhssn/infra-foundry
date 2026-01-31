@@ -174,11 +174,11 @@ To enable automated npm publishing, add the `NPM_TOKEN` secret to your repositor
 
 ### Version Bump Rules
 
-| Commit Type     | Example                  | Version Bump  |
-| --------------- | ------------------------ | ------------- |
-| Breaking change | `feat(s3)!: ...`         | Major (1.0.0) |
-| Feature         | `feat(ecs): ...`         | Minor (0.1.0) |
-| Fix             | `fix(amplify): ...`      | Patch (0.0.1) |
+| Commit Type     | Example             | Version Bump  |
+| --------------- | ------------------- | ------------- |
+| Breaking change | `feat(s3)!: ...`    | Major (1.0.0) |
+| Feature         | `feat(ecs): ...`    | Minor (0.1.0) |
+| Fix             | `fix(amplify): ...` | Patch (0.0.1) |
 
 ## 📖 Examples
 

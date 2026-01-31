@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0] - 2025-01-29
 
 ### Added
+
 - Initial public release
 - AWS Amplify components for static site hosting
 - AWS S3 components with CloudFront CDN integration

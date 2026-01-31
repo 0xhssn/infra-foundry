@@ -224,42 +224,42 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/) w
 
 ### Commit Types
 
-| Type       | Description                                    | Version Bump |
-| ---------- | ---------------------------------------------- | ------------ |
-| `feat`     | New features                                   | Minor        |
-| `fix`      | Bug fixes                                      | Patch        |
-| `docs`     | Documentation changes                          | None         |
-| `style`    | Code style changes (formatting, etc.)          | None         |
-| `refactor` | Code refactoring                               | None         |
-| `perf`     | Performance improvements                       | Patch        |
-| `test`     | Adding or updating tests                       | None         |
-| `build`    | Build system or external dependencies          | None         |
-| `ci`       | CI/CD changes                                  | None         |
-| `chore`    | Maintenance tasks                              | None         |
-| `revert`   | Reverting changes                              | Patch        |
+| Type       | Description                           | Version Bump |
+| ---------- | ------------------------------------- | ------------ |
+| `feat`     | New features                          | Minor        |
+| `fix`      | Bug fixes                             | Patch        |
+| `docs`     | Documentation changes                 | None         |
+| `style`    | Code style changes (formatting, etc.) | None         |
+| `refactor` | Code refactoring                      | None         |
+| `perf`     | Performance improvements              | Patch        |
+| `test`     | Adding or updating tests              | None         |
+| `build`    | Build system or external dependencies | None         |
+| `ci`       | CI/CD changes                         | None         |
+| `chore`    | Maintenance tasks                     | None         |
+| `revert`   | Reverting changes                     | Patch        |
 
 ### Required Scopes
 
 All commits **must** include a scope. Available scopes are based on the project structure:
 
-| Scope        | Description                      |
-| ------------ | -------------------------------- |
-| `amplify`    | AWS Amplify components           |
-| `app-runner` | AWS App Runner components        |
-| `cloudflare` | Cloudflare components            |
-| `ecr`        | AWS ECR components               |
-| `ecs`        | AWS ECS components               |
-| `image`      | Docker image components          |
-| `rds`        | AWS RDS components               |
-| `route53`    | AWS Route53 components           |
-| `s3`         | AWS S3 components                |
-| `secret`     | AWS Secrets Manager components   |
-| `ses`        | AWS SES components               |
-| `vpc`        | AWS VPC components               |
-| `utils`      | Shared utilities                 |
-| `deps`       | Dependency updates               |
-| `ci`         | CI/CD configuration              |
-| `release`    | Release configuration            |
+| Scope        | Description                    |
+| ------------ | ------------------------------ |
+| `amplify`    | AWS Amplify components         |
+| `app-runner` | AWS App Runner components      |
+| `cloudflare` | Cloudflare components          |
+| `ecr`        | AWS ECR components             |
+| `ecs`        | AWS ECS components             |
+| `image`      | Docker image components        |
+| `rds`        | AWS RDS components             |
+| `route53`    | AWS Route53 components         |
+| `s3`         | AWS S3 components              |
+| `secret`     | AWS Secrets Manager components |
+| `ses`        | AWS SES components             |
+| `vpc`        | AWS VPC components             |
+| `utils`      | Shared utilities               |
+| `deps`       | Dependency updates             |
+| `ci`         | CI/CD configuration            |
+| `release`    | Release configuration          |
 
 ### Breaking Changes
 
@@ -272,6 +272,7 @@ Breaking changes trigger a **major** version bump. Use one of these formats:
    ```
 
 2. **Footer syntax** (for detailed explanation):
+
    ```bash
    git commit -m "feat(s3): change bucket naming convention
 
@@ -300,13 +301,13 @@ git commit -m "chore(deps): update pulumi dependencies"
 
 ### Version Bump Rules
 
-| Commit Type          | Example                            | Version Bump       |
-| -------------------- | ---------------------------------- | ------------------ |
-| Breaking change      | `feat(s3)!: ...`                   | Major (1.0.0)      |
-| Feature              | `feat(ecs): ...`                   | Minor (0.1.0)      |
-| Fix                  | `fix(amplify): ...`                | Patch (0.0.1)      |
-| Performance          | `perf(vpc): ...`                   | Patch (0.0.1)      |
-| Docs/Style/Chore/CI  | `docs(utils): ...`                 | None               |
+| Commit Type         | Example             | Version Bump  |
+| ------------------- | ------------------- | ------------- |
+| Breaking change     | `feat(s3)!: ...`    | Major (1.0.0) |
+| Feature             | `feat(ecs): ...`    | Minor (0.1.0) |
+| Fix                 | `fix(amplify): ...` | Patch (0.0.1) |
+| Performance         | `perf(vpc): ...`    | Patch (0.0.1) |
+| Docs/Style/Chore/CI | `docs(utils): ...`  | None          |
 
 For more details, see [semantic-release documentation](https://semantic-release.gitbook.io/semantic-release/).
 

@@ -16,8 +16,8 @@ module.exports = {
         'build', // Build system or external dependencies
         'ci', // CI/CD changes
         'chore', // Maintenance tasks
-        'revert' // Reverting changes
-      ]
+        'revert', // Reverting changes
+      ],
     ],
     // Enforce project-specific scopes based on src/ structure
     'scope-enum': [
@@ -42,8 +42,8 @@ module.exports = {
         // Meta scopes
         'deps',
         'ci',
-        'release'
-      ]
+        'release',
+      ],
     ],
     // Require scope for all commits
     'scope-empty': [2, 'never'],
@@ -55,6 +55,6 @@ module.exports = {
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
     // Header max length
-    'header-max-length': [2, 'always', 100]
-  }
-};
+    'header-max-length': [2, 'always', 100],
+  },
+}
