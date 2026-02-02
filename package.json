@@ -1,5 +1,5 @@
 {
-  "name": "cloudforge",
+  "name": "infra-foundary",
   "version": "0.3.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
@@ -26,11 +26,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/0xhssn/cloudforge.git"
+    "url": "git+ssh://git@github.com/0xhssn/infra-foundary.git"
   },
-  "homepage": "https://github.com/0xhssn/cloudforge#readme",
+  "homepage": "https://github.com/0xhssn/infra-foundary#readme",
   "bugs": {
-    "url": "https://github.com/0xhssn/cloudforge/issues"
+    "url": "https://github.com/0xhssn/infra-foundary/issues"
   },
   "license": "MIT",
   "publishConfig": {

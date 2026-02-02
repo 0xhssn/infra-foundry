@@ -10,7 +10,7 @@ export class CloudflareNameserver extends ComponentResource {
   public readonly zoneInfo: Output<GetZoneResult> | undefined
 
   constructor(name: string, config: CloudflareNameserverConfig, opts?: ComponentResourceOptions) {
-    super('cloudforge:cloudflare:CloudflareNameserver', name, {}, opts)
+    super('infra-foundary:cloudflare:CloudflareNameserver', name, {}, opts)
 
     const res = !config.zoneId
       ? this._createNsRecordsOnCloudflare(config)

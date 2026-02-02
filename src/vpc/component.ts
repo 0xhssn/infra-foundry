@@ -17,7 +17,7 @@ export class Vpc extends ComponentResource {
   constructor(name: string, opts?: ComponentResourceOptions) {
     const resourceName = addEnvSuffix(name)
     super(
-      'cloudforge:vpc:Vpc',
+      'infra-foundary:vpc:Vpc',
       resourceName,
       {
         name: resourceName,

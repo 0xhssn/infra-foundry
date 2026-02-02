@@ -1,4 +1,4 @@
-# Contributing to CloudForge
+# Contributing to Infra Foundary
 
 This guide will help you get started with contributing to our platform-agnostic cloud infrastructure components library.
 
@@ -43,16 +43,16 @@ Before you begin, ensure you have the following installed:
 
 ## 🧪 Testing Your Changes
 
-CloudForge supports two methods for testing your changes in real projects:
+Infra Foundary supports two methods for testing your changes in real projects:
 
 ### Method 1: Local Linking (Recommended for Development)
 
 This method allows you to test changes in real-time without pushing to GitHub.
 
-1. **Link CloudForge Locally**
+1. **Link Infra Foundary Locally**
 
    ```bash
-   # In the CloudForge directory
+   # In the Infra Foundary directory
    yarn link
 
    # Build your changes
@@ -63,14 +63,14 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project directory (e.g., MFS or a new test project)
-   yarn link 0xhssn/cloudforge
+   yarn link 0xhssn/infra-foundary
    ```
 
 3. **Test Your Changes**
 
    ```bash
-   # Make changes in CloudForge
-   cd /path/to/CloudForge
+   # Make changes in Infra Foundary
+   cd /path/to/infra-foundary
    yarn build  # Rebuild after changes
 
    # Test in your project
@@ -82,9 +82,9 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project
-   yarn unlink 0xhssn/cloudforge
+   yarn unlink 0xhssn/infra-foundary
 
-   # In CloudForge directory
+   # In Infra Foundary directory
    yarn unlink
    ```
 
@@ -105,7 +105,7 @@ Use this method to test changes as they would be consumed by end users.
 
    ```bash
    # In your test project
-   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git#feature/your-feature-name
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundary.git#feature/your-feature-name
    ```
 
 3. **Test the Changes**
@@ -118,7 +118,7 @@ Use this method to test changes as they would be consumed by end users.
 4. **Revert to Main When Done**
    ```bash
    # Switch back to main branch
-   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundary.git
    ```
 
 ## 🏗️ Development Workflow
@@ -168,7 +168,7 @@ Use this method to test changes as they would be consumed by end users.
    ```
 
 constructor(name: string, config: AmplifyAppConfig, opts?: ComponentResourceOptions) {
-super('cloudforge:amplify:AmplifyComponent', name, {}, opts)
+super('infra-foundary:amplify:AmplifyComponent', name, {}, opts)
 // Implementation
 }
 
@@ -347,7 +347,7 @@ For more details, see [semantic-release documentation](https://semantic-release.
 
 ## 🏷️ Versioning
 
-CloudForge follows [Semantic Versioning](https://semver.org/):
+Infra Foundary follows [Semantic Versioning](https://semver.org/):
 
 - **MAJOR** version: Breaking changes
 - **MINOR** version: New features (backward compatible)
@@ -355,7 +355,7 @@ CloudForge follows [Semantic Versioning](https://semver.org/):
 
 ## 🆘 Getting Help
 
-- **Issues**: Check [existing issues](https://github.com/0xhssn/cloudforge.git/issues) or create a new one
+- **Issues**: Check [existing issues](https://github.com/0xhssn/infra-foundary/issues) or create a new one
 - **Discussions**: Use GitHub Discussions for questions and ideas
 - **Documentation**: Refer to component README files and main documentation
 
@@ -392,4 +392,4 @@ When creating new components:
 
 ---
 
-Thank you for contributing to 🌪️ CloudForge!
+Thank you for contributing to 🏗️ Infra Foundary!

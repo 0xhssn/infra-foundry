@@ -21,7 +21,7 @@ export class EcsCluster extends ComponentResource {
   constructor(name: string, opts?: ComponentResourceOptions) {
     const resourceName = addEnvSuffix(name)
     super(
-      'cloudforge:ecs:EcsCluster',
+      'infra-foundary:ecs:EcsCluster',
       resourceName,
       {
         name: resourceName,
@@ -50,7 +50,7 @@ export class EcsService extends ComponentResource {
   ) {
     const resourceName = addEnvSuffix(name)
     super(
-      'cloudforge:ecs:EcsService',
+      'infra-foundary:ecs:EcsService',
       resourceName,
       {
         name: resourceName,

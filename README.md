@@ -1,6 +1,6 @@
-# 🌪️ CloudForge
+# 🏗️ Infra Foundary
 
-A platform-agnostic cloud infrastructure components library for modern applications. Built with TypeScript and Pulumi, CloudForge provides reusable, composable infrastructure components that work across AWS, Cloudflare, and other cloud providers.
+A platform-agnostic cloud infrastructure components library for modern applications. Built with TypeScript and Pulumi, Infra Foundary provides reusable, composable infrastructure components that work across AWS, Cloudflare, and other cloud providers.
 
 ## 📊 Version
 
@@ -25,12 +25,12 @@ Current version: **0.3.0**
 
   ```bash
   # Install directly from GitHub
-  yarn add git+ssh://git@github.com/0xhssn/cloudforge.git
+  yarn add git+ssh://git@github.com/0xhssn/infra-foundary.git
 
   # or add as dependency in package.json
   "dependencies": {
     ...
-    "cloudforge": "git+ssh://git@github.com/0xhssn/cloudforge.git",
+    "infra-foundary": "git+ssh://git@github.com/0xhssn/infra-foundary.git",
     ...
   }
   # and then install
@@ -94,8 +94,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/0xhssn/cloudforge.git
-cd cloudforge
+git clone https://github.com/0xhssn/infra-foundary.git
+cd infra-foundary
 
 # Install dependencies
 yarn install
@@ -145,7 +145,7 @@ ssh-keygen -t ed25519 -C "your_name@flatout.solutions" -f ~/.ssh/ci_deploy_key
 
 ## 🚀 Release Automation
 
-CloudForge uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
+Infra Foundary uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
 
 ### How It Works
 
@@ -198,8 +198,8 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/0xhssn/cloudforge.git#readme)
-- [Issue Tracker](https://github.com/0xhssn/cloudforge.git/issues)
+- [Documentation](https://github.com/0xhssn/infra-foundary#readme)
+- [Issue Tracker](https://github.com/0xhssn/infra-foundary/issues)
 - [Pulumi Documentation](https://www.pulumi.com/docs/)
 
 ---

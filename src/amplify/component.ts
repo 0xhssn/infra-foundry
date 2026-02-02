@@ -24,7 +24,7 @@ export class AmplifyApp extends ComponentResource {
     }: AmplifyAppConfig,
     opts?: ComponentResourceOptions,
   ) {
-    super('cloudforge:amplify:AmplifyApp', name, {}, opts)
+    super('infra-foundary:amplify:AmplifyApp', name, {}, opts)
     const amplifyServiceRole = createAmplifyServiceRole(name, this)
 
     this.app = new amplify.App(
