@@ -19,9 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AWS Route53 components for DNS management
 - AWS SES components for email services
 - AWS VPC components for networking
-- AWS RDS components for databases
 - AWS Secrets Manager components
-- AWS App Runner components
 - Cloudflare components for DNS and CDN
 - Docker image building components
 - Utility functions for environment management and tagging
