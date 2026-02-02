@@ -1,4 +1,4 @@
-# Contributing to Infra Foundary
+# Contributing to Infra Foundry
 
 This guide will help you get started with contributing to our platform-agnostic cloud infrastructure components library.
 
@@ -43,16 +43,16 @@ Before you begin, ensure you have the following installed:
 
 ## 🧪 Testing Your Changes
 
-Infra Foundary supports two methods for testing your changes in real projects:
+Infra Foundry supports two methods for testing your changes in real projects:
 
 ### Method 1: Local Linking (Recommended for Development)
 
 This method allows you to test changes in real-time without pushing to GitHub.
 
-1. **Link Infra Foundary Locally**
+1. **Link Infra Foundry Locally**
 
    ```bash
-   # In the Infra Foundary directory
+   # In the Infra Foundry directory
    yarn link
 
    # Build your changes
@@ -63,14 +63,14 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project directory (e.g., MFS or a new test project)
-   yarn link 0xhssn/infra-foundary
+   yarn link 0xhssn/infra-foundry
    ```
 
 3. **Test Your Changes**
 
    ```bash
-   # Make changes in Infra Foundary
-   cd /path/to/infra-foundary
+   # Make changes in Infra Foundry
+   cd /path/to/infra-foundry
    yarn build  # Rebuild after changes
 
    # Test in your project
@@ -82,9 +82,9 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project
-   yarn unlink 0xhssn/infra-foundary
+   yarn unlink 0xhssn/infra-foundry
 
-   # In Infra Foundary directory
+   # In Infra Foundry directory
    yarn unlink
    ```
 
@@ -105,7 +105,7 @@ Use this method to test changes as they would be consumed by end users.
 
    ```bash
    # In your test project
-   yarn add git+ssh://git@github.com:0xhssn/infra-foundary.git#feature/your-feature-name
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundry.git#feature/your-feature-name
    ```
 
 3. **Test the Changes**
@@ -118,7 +118,7 @@ Use this method to test changes as they would be consumed by end users.
 4. **Revert to Main When Done**
    ```bash
    # Switch back to main branch
-   yarn add git+ssh://git@github.com:0xhssn/infra-foundary.git
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundry.git
    ```
 
 ## 🏗️ Development Workflow
@@ -168,7 +168,7 @@ Use this method to test changes as they would be consumed by end users.
    ```
 
 constructor(name: string, config: AmplifyAppConfig, opts?: ComponentResourceOptions) {
-super('infra-foundary:amplify:AmplifyComponent', name, {}, opts)
+super('infra-foundry:amplify:AmplifyComponent', name, {}, opts)
 // Implementation
 }
 
@@ -347,7 +347,7 @@ For more details, see [semantic-release documentation](https://semantic-release.
 
 ## 🏷️ Versioning
 
-Infra Foundary follows [Semantic Versioning](https://semver.org/):
+Infra Foundry follows [Semantic Versioning](https://semver.org/):
 
 - **MAJOR** version: Breaking changes
 - **MINOR** version: New features (backward compatible)
@@ -355,7 +355,7 @@ Infra Foundary follows [Semantic Versioning](https://semver.org/):
 
 ## 🆘 Getting Help
 
-- **Issues**: Check [existing issues](https://github.com/0xhssn/infra-foundary/issues) or create a new one
+- **Issues**: Check [existing issues](https://github.com/0xhssn/infra-foundry/issues) or create a new one
 - **Discussions**: Use GitHub Discussions for questions and ideas
 - **Documentation**: Refer to component README files and main documentation
 
@@ -392,4 +392,4 @@ When creating new components:
 
 ---
 
-Thank you for contributing to 🏗️ Infra Foundary!
+Thank you for contributing to 🏗️ Infra Foundry!

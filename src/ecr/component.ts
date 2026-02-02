@@ -18,7 +18,7 @@ export class EcrRepository extends ComponentResource {
   public readonly repository: ecr.Repository
 
   constructor({ name, maxImages = 2 }: EcrRepositoryArgs, opts?: ComponentResourceOptions) {
-    super('infra-foundary:ecr:EcrRepository', name, {}, opts)
+    super('infra-foundry:ecr:EcrRepository', name, {}, opts)
 
     this.repository = new ecr.Repository(
       name,

@@ -9,7 +9,7 @@ export class S3Bucket extends ComponentResource {
   public readonly assetsCdn: cloudfront.Distribution
 
   constructor({ name, contentExpiration }: S3BucketConfig, opts?: ComponentResourceOptions) {
-    super('infra-foundary:s3:S3Bucket', name, { name }, opts)
+    super('infra-foundry:s3:S3Bucket', name, { name }, opts)
 
     this.assetBucket = this.createS3Bucket(name, contentExpiration)
     const originAccessIdentity = this.createOriginAccessIdentity(name)

@@ -1,4 +1,4 @@
-name: 🏗️ Infra Foundary CI
+name: 🏗️ Infra Foundry CI
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
 
       - name: 🏗️ Build project
         run: |
-          echo "🔨 Building Infra Foundary..."
+          echo "🔨 Building Infra Foundry..."
           yarn build
 
       - name: ✅ All checks passed!

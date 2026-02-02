@@ -1,5 +1,5 @@
 {
-  "name": "infra-foundary",
+  "name": "infra-foundry",
   "version": "0.3.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
@@ -26,11 +26,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/0xhssn/infra-foundary.git"
+    "url": "git+ssh://git@github.com/0xhssn/infra-foundry.git"
   },
-  "homepage": "https://github.com/0xhssn/infra-foundary#readme",
+  "homepage": "https://github.com/0xhssn/infra-foundry#readme",
   "bugs": {
-    "url": "https://github.com/0xhssn/infra-foundary/issues"
+    "url": "https://github.com/0xhssn/infra-foundry/issues"
   },
   "license": "MIT",
   "publishConfig": {

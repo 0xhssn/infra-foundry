@@ -1,6 +1,6 @@
-# 🏗️ Infra Foundary
+# 🏗️ Infra Foundry
 
-A platform-agnostic cloud infrastructure components library for modern applications. Built with TypeScript and Pulumi, Infra Foundary provides reusable, composable infrastructure components that work across AWS, Cloudflare, and other cloud providers.
+A platform-agnostic cloud infrastructure components library for modern applications. Built with TypeScript and Pulumi, Infra Foundry provides reusable, composable infrastructure components that work across AWS, Cloudflare, and other cloud providers.
 
 ## 📊 Version
 
@@ -25,12 +25,12 @@ Current version: **0.3.0**
 
   ```bash
   # Install directly from GitHub
-  yarn add git+ssh://git@github.com/0xhssn/infra-foundary.git
+  yarn add git+ssh://git@github.com/0xhssn/infra-foundry.git
 
   # or add as dependency in package.json
   "dependencies": {
     ...
-    "infra-foundary": "git+ssh://git@github.com/0xhssn/infra-foundary.git",
+    "infra-foundry": "git+ssh://git@github.com/0xhssn/infra-foundry.git",
     ...
   }
   # and then install
@@ -94,8 +94,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/0xhssn/infra-foundary.git
-cd infra-foundary
+git clone https://github.com/0xhssn/infra-foundry.git
+cd infra-foundry
 
 # Install dependencies
 yarn install
@@ -145,7 +145,7 @@ ssh-keygen -t ed25519 -C "your_name@flatout.solutions" -f ~/.ssh/ci_deploy_key
 
 ## 🚀 Release Automation
 
-Infra Foundary uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
+Infra Foundry uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
 
 ### How It Works
 
@@ -198,8 +198,8 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/0xhssn/infra-foundary#readme)
-- [Issue Tracker](https://github.com/0xhssn/infra-foundary/issues)
+- [Documentation](https://github.com/0xhssn/infra-foundry#readme)
+- [Issue Tracker](https://github.com/0xhssn/infra-foundry/issues)
 - [Pulumi Documentation](https://www.pulumi.com/docs/)
 
 ---

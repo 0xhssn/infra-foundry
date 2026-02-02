@@ -10,7 +10,7 @@ export class RdsComponent extends ComponentResource {
   public readonly port: Output<number>
 
   constructor(name: string, args: RdsComponentArgs, opts?: ComponentResourceOptions) {
-    super('infra-foundary:RDS:Instance', name, {}, opts)
+    super('infra-foundry:RDS:Instance', name, {}, opts)
 
     const securityGroup = this.createAllowAllSecurityGroup(name, args.tags || {})
     this.dbInstance = new rds.Instance(

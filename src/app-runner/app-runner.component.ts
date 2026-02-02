@@ -10,7 +10,7 @@ export class AppRunnerService extends ComponentResource {
   public readonly serviceArn: Output<string>
 
   constructor(name: string, args: AppRunnerServiceArgs, opts?: ComponentResourceOptions) {
-    super('infra-foundary:AppRunner:Service', name, {}, opts)
+    super('infra-foundry:AppRunner:Service', name, {}, opts)
 
     const cfgName = args.name ?? name
 

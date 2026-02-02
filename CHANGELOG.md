@@ -26,5 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker image building components
 - Utility functions for environment management and tagging
 
-[Unreleased]: https://github.com/0xhssn/infra-foundary/compare/v0.3.0...HEAD
-[0.3.0]: https://github.com/0xhssn/infra-foundary/releases/tag/v0.3.0
+[Unreleased]: https://github.com/0xhssn/infra-foundry/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/0xhssn/infra-foundry/releases/tag/v0.3.0

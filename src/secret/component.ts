@@ -14,7 +14,7 @@ export class Secret extends ComponentResource {
   public readonly secretVersion: secretsmanager.SecretVersion
 
   constructor({ name, description, values }: SecretConfig, opts?: ComponentResourceOptions) {
-    super('infra-foundary:asm:Secret', name, {}, opts)
+    super('infra-foundry:asm:Secret', name, {}, opts)
 
     this.secret = new secretsmanager.Secret(
       name,
@@ -26,7 +26,7 @@ export class Secret extends ComponentResource {
       { parent: this },
     )
 
-    // todo: use mapToNameValuePairs when migrating to infra-foundary
+    // todo: use mapToNameValuePairs when migrating to infra-foundry
     const mappedValues = Object.entries(values).map(([key, value]) => ({
       key,
       value,
