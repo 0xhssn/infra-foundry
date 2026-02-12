@@ -1,4 +1,4 @@
-# Contributing to CloudForge
+# Contributing to Infra Foundry
 
 This guide will help you get started with contributing to our platform-agnostic cloud infrastructure components library.
 
@@ -43,16 +43,16 @@ Before you begin, ensure you have the following installed:
 
 ## 🧪 Testing Your Changes
 
-CloudForge supports two methods for testing your changes in real projects:
+Infra Foundry supports two methods for testing your changes in real projects:
 
 ### Method 1: Local Linking (Recommended for Development)
 
 This method allows you to test changes in real-time without pushing to GitHub.
 
-1. **Link CloudForge Locally**
+1. **Link Infra Foundry Locally**
 
    ```bash
-   # In the CloudForge directory
+   # In the Infra Foundry directory
    yarn link
 
    # Build your changes
@@ -63,14 +63,14 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project directory (e.g., MFS or a new test project)
-   yarn link 0xhssn/cloudforge
+   yarn link 0xhssn/infra-foundry
    ```
 
 3. **Test Your Changes**
 
    ```bash
-   # Make changes in CloudForge
-   cd /path/to/CloudForge
+   # Make changes in Infra Foundry
+   cd /path/to/infra-foundry
    yarn build  # Rebuild after changes
 
    # Test in your project
@@ -82,9 +82,9 @@ This method allows you to test changes in real-time without pushing to GitHub.
 
    ```bash
    # In your test project
-   yarn unlink 0xhssn/cloudforge
+   yarn unlink 0xhssn/infra-foundry
 
-   # In CloudForge directory
+   # In Infra Foundry directory
    yarn unlink
    ```
 
@@ -105,7 +105,7 @@ Use this method to test changes as they would be consumed by end users.
 
    ```bash
    # In your test project
-   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git#feature/your-feature-name
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundry.git#feature/your-feature-name
    ```
 
 3. **Test the Changes**
@@ -118,7 +118,7 @@ Use this method to test changes as they would be consumed by end users.
 4. **Revert to Main When Done**
    ```bash
    # Switch back to main branch
-   yarn add git+ssh://git@github.com:0xhssn/cloudforge.git
+   yarn add git+ssh://git@github.com:0xhssn/infra-foundry.git
    ```
 
 ## 🏗️ Development Workflow
@@ -168,7 +168,7 @@ Use this method to test changes as they would be consumed by end users.
    ```
 
 constructor(name: string, config: AmplifyAppConfig, opts?: ComponentResourceOptions) {
-super('cloudforge:amplify:AmplifyComponent', name, {}, opts)
+super('infra-foundry:amplify:AmplifyComponent', name, {}, opts)
 // Implementation
 }
 
@@ -210,23 +210,104 @@ export * from './types'
 
 ## 📝 Commit Guidelines
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/) specification:
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) with automated enforcement via [commitlint](https://commitlint.js.org/). All commits are validated locally via Husky git hooks and in CI for pull requests.
 
-- `feat:` - New features
-- `fix:` - Bug fixes
-- `docs:` - Documentation changes
-- `style:` - Code style changes (formatting, etc.)
-- `refactor:` - Code refactoring
-- `test:` - Adding or updating tests
-- `chore:` - Maintenance tasks
+### Commit Format
 
-**Examples:**
+```
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Commit Types
+
+| Type       | Description                           | Version Bump |
+| ---------- | ------------------------------------- | ------------ |
+| `feat`     | New features                          | Minor        |
+| `fix`      | Bug fixes                             | Patch        |
+| `docs`     | Documentation changes                 | None         |
+| `style`    | Code style changes (formatting, etc.) | None         |
+| `refactor` | Code refactoring                      | None         |
+| `perf`     | Performance improvements              | Patch        |
+| `test`     | Adding or updating tests              | None         |
+| `build`    | Build system or external dependencies | None         |
+| `ci`       | CI/CD changes                         | None         |
+| `chore`    | Maintenance tasks                     | None         |
+| `revert`   | Reverting changes                     | Patch        |
+
+### Required Scopes
+
+All commits **must** include a scope. Available scopes are based on the project structure:
+
+| Scope        | Description                    |
+| ------------ | ------------------------------ |
+| `amplify`    | AWS Amplify components         |
+| `cloudflare` | Cloudflare components          |
+| `ecr`        | AWS ECR components             |
+| `ecs`        | AWS ECS components             |
+| `image`      | Docker image components        |
+| `route53`    | AWS Route53 components         |
+| `s3`         | AWS S3 components              |
+| `secret`     | AWS Secrets Manager components |
+| `ses`        | AWS SES components             |
+| `vpc`        | AWS VPC components             |
+| `utils`      | Shared utilities               |
+| `deps`       | Dependency updates             |
+| `ci`         | CI/CD configuration            |
+| `release`    | Release configuration          |
+
+### Breaking Changes
+
+Breaking changes trigger a **major** version bump. Use one of these formats:
+
+1. **Exclamation mark syntax** (recommended for simple breaks):
+
+   ```bash
+   git commit -m "feat(amplify)!: rename config property"
+   ```
+
+2. **Footer syntax** (for detailed explanation):
+
+   ```bash
+   git commit -m "feat(s3): change bucket naming convention
+
+   BREAKING CHANGE: Bucket names now include environment suffix by default.
+   Existing buckets will need to be renamed or use the legacy naming option."
+   ```
+
+### Examples
 
 ```bash
-git commit -m "feat: add ECS service factory"
-git commit -m "fix: resolve S3 bucket naming issue"
-git commit -m "docs: update amplify component README"
+# Feature with scope
+git commit -m "feat(ecs): add support for Fargate Spot"
+
+# Bug fix with scope
+git commit -m "fix(s3): resolve bucket policy attachment issue"
+
+# Documentation with scope
+git commit -m "docs(amplify): update README with new config options"
+
+# Breaking change
+git commit -m "feat(route53)!: require explicit zone configuration"
+
+# Chore with meta scope
+git commit -m "chore(deps): update pulumi dependencies"
 ```
+
+### Version Bump Rules
+
+| Commit Type         | Example             | Version Bump  |
+| ------------------- | ------------------- | ------------- |
+| Breaking change     | `feat(s3)!: ...`    | Major (1.0.0) |
+| Feature             | `feat(ecs): ...`    | Minor (0.1.0) |
+| Fix                 | `fix(amplify): ...` | Patch (0.0.1) |
+| Performance         | `perf(vpc): ...`    | Patch (0.0.1) |
+| Docs/Style/Chore/CI | `docs(utils): ...`  | None          |
+
+For more details, see [semantic-release documentation](https://semantic-release.gitbook.io/semantic-release/).
 
 ## 🔄 Pull Request Process
 
@@ -264,7 +345,7 @@ git commit -m "docs: update amplify component README"
 
 ## 🏷️ Versioning
 
-CloudForge follows [Semantic Versioning](https://semver.org/):
+Infra Foundry follows [Semantic Versioning](https://semver.org/):
 
 - **MAJOR** version: Breaking changes
 - **MINOR** version: New features (backward compatible)
@@ -272,7 +353,7 @@ CloudForge follows [Semantic Versioning](https://semver.org/):
 
 ## 🆘 Getting Help
 
-- **Issues**: Check [existing issues](https://github.com/0xhssn/cloudforge.git/issues) or create a new one
+- **Issues**: Check [existing issues](https://github.com/0xhssn/infra-foundry/issues) or create a new one
 - **Discussions**: Use GitHub Discussions for questions and ideas
 - **Documentation**: Refer to component README files and main documentation
 
@@ -309,4 +390,4 @@ When creating new components:
 
 ---
 
-Thank you for contributing to 🌪️ CloudForge!
+Thank you for contributing to 🏗️ Infra Foundry!

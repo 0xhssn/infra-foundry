@@ -8,7 +8,7 @@ export class HostedZone extends ComponentResource {
   public readonly zone: route53.Zone
 
   constructor(name: string, config: CreateHostedZoneConfig, opts?: ComponentResourceOptions) {
-    super('cloudforge:route53:HostedZone', name, {}, opts)
+    super('infra-foundry:route53:HostedZone', name, {}, opts)
 
     this.zone = this.createHostedZone(name, config)
     this.registerOutputs({

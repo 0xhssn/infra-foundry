@@ -21,7 +21,7 @@ export class Ses extends ComponentResource {
   public readonly dkimRecords?: Output<DnsRecord[]>
 
   constructor(name: string, args: SesComponentArgs, opts?: ComponentResourceOptions) {
-    super('cloudforge:ses:Ses', name, {}, opts)
+    super('infra-foundry:ses:Ses', name, {}, opts)
 
     const resourceName = addEnvSuffix(args.name)
 
@@ -62,7 +62,7 @@ export class SesWithRoute53 extends ComponentResource {
   public readonly dkimRecords?: route53.Record[]
 
   constructor(name: string, args: SesWithRoute53Args, opts?: ComponentResourceOptions) {
-    super('cloudforge:ses:SesWithRoute53', name, {}, opts)
+    super('infra-foundry:ses:SesWithRoute53', name, {}, opts)
 
     const resourceName = addEnvSuffix(args.name)
     const { hostedZoneId, ...sesArgs } = args

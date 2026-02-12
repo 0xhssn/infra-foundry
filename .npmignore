@@ -1,3 +1,15 @@
 src
 tsconfig.json
 *.ts
+node_modules
+tests
+*.log
+.github
+.prettierrc
+.prettierignore
+.eslintrc
+.eslintignore
+.commitlintrc
+.commitlintignore
+.semantic-release.config.js
+.semantic-release.config.js

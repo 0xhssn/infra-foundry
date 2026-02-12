@@ -1,12 +1,13 @@
 {
-  "name": "cloudforge",
+  "name": "infra-foundry",
   "version": "0.3.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "cloud",
@@ -25,37 +26,63 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/0xhssn/cloudforge.git"
+    "url": "git+ssh://git@github.com/0xhssn/infra-foundry.git"
   },
-  "homepage": "https://github.com/0xhssn/cloudforge#readme",
+  "homepage": "https://github.com/0xhssn/infra-foundry#readme",
   "bugs": {
-    "url": "https://github.com/0xhssn/cloudforge/issues"
+    "url": "https://github.com/0xhssn/infra-foundry/issues"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@pulumi/aws": "^6.0.0",
+    "@pulumi/awsx": "^2.0.0",
+    "@pulumi/cloudflare": "^6.0.0",
+    "@pulumi/pulumi": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@pulumi/cloudflare": {
+      "optional": true
+    }
+  },
   "dependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@pulumi/aws": "^6.82.1",
     "@pulumi/awsx": "^2.21.1",
     "@pulumi/cloudflare": "^6.2.0",
     "@pulumi/pulumi": "^3.174.0",
-    "typescript": "^5.0.0"
-  },
-  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-import": "^2.31.0",
-    "prettier": "^3.5.3"
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "semantic-release": "^24.2.1"
   },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "postinstall": "yarn build",
+    "clean": "rm -rf dist",
+    "prepare": "husky",
+    "prepublishOnly": "yarn clean && yarn build && yarn lint",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "commitlint": "commitlint --edit",
+    "semantic-release": "semantic-release",
+    "semantic-release:dry-run": "semantic-release --dry-run",
     "test": "echo 'No tests yet'",
     "test:watch": "echo 'No tests yet'"
   },

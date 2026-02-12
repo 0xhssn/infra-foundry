@@ -9,7 +9,7 @@ export class S3Bucket extends ComponentResource {
   public readonly assetsCdn: cloudfront.Distribution
 
   constructor({ name, contentExpiration }: S3BucketConfig, opts?: ComponentResourceOptions) {
-    super('cloudforge:s3:S3Bucket', name, { name }, opts)
+    super('infra-foundry:s3:S3Bucket', name, { name }, opts)
 
     this.assetBucket = this.createS3Bucket(name, contentExpiration)
     const originAccessIdentity = this.createOriginAccessIdentity(name)
@@ -70,9 +70,13 @@ export class S3Bucket extends ComponentResource {
   }
 
   private createOriginAccessIdentity(name: string): cloudfront.OriginAccessIdentity {
-    return new cloudfront.OriginAccessIdentity(`${name}-assets-oai`, {
-      comment: `OAI for ${name} assets`,
-    }, { parent: this })
+    return new cloudfront.OriginAccessIdentity(
+      `${name}-assets-oai`,
+      {
+        comment: `OAI for ${name} assets`,
+      },
+      { parent: this },
+    )
   }
 
   private createBucketPolicy(
