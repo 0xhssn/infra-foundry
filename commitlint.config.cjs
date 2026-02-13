@@ -26,12 +26,10 @@ module.exports = {
       [
         // AWS Components
         'amplify',
-        'app-runner',
         'cloudflare',
         'ecr',
         'ecs',
         'image',
-        'rds',
         'route53',
         's3',
         'secret',
@@ -56,5 +54,8 @@ module.exports = {
     'subject-full-stop': [2, 'never', '.'],
     // Header max length
     'header-max-length': [2, 'always', 100],
+    // Disable body line length (semantic-release generates long URLs)
+    'body-max-line-length': [0, 'always'],
+    'footer-max-line-length': [0, 'always'],
   },
 }
