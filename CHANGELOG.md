@@ -1,3 +1,17 @@
+# 1.0.0 (2026-02-13)
+
+
+### Bug Fixes
+
+* **ci:** disable body line length limit for semantic-release ([321b304](https://github.com/0xhssn/infra-foundry/commit/321b304024b99a05b06770c80451a3b38fce3fdb))
+* **release:** correct package name spelling to infra-foundry ([87ccf09](https://github.com/0xhssn/infra-foundry/commit/87ccf09e9be0f7f76153120ffca50a7f1bc363fb))
+
+
+### Features
+
+* add app runner component ([a8e0a93](https://github.com/0xhssn/infra-foundry/commit/a8e0a93168d0b9a72e5c9429af32ed06fe398954))
+* **ci:** add semantic-release automation with commitlint ([d369573](https://github.com/0xhssn/infra-foundry/commit/d3695733b5271950cb1b763f09aad5b6587df552))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

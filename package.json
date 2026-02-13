@@ -1,6 +1,6 @@
 {
   "name": "infra-foundry",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "🌪️ Cloud infrastructure components library for modern applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
