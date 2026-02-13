@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/0xhssn/infra-foundry/compare/v1.0.1...v1.0.2) (2026-02-13)
+
+
+### Bug Fixes
+
+* **release:** remove non-existent examples section from readme ([0524fdf](https://github.com/0xhssn/infra-foundry/commit/0524fdf81a0eecf3ff6d480df4b265d71d54db0d))
+
 ## [1.0.1](https://github.com/0xhssn/infra-foundry/compare/v1.0.0...v1.0.1) (2026-02-13)
 
 
