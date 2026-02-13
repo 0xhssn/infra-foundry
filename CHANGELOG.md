@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/0xhssn/infra-foundry/compare/v1.0.0...v1.0.1) (2026-02-13)
+
+
+### Bug Fixes
+
+* **release:** publish readme updates to npm ([f3827f0](https://github.com/0xhssn/infra-foundry/commit/f3827f091f40c8330672ef4b83dab9946e59d5c7))
+
 # 1.0.0 (2026-02-13)
 
 ### Bug Fixes
