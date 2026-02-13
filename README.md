@@ -161,14 +161,6 @@ To enable automated npm publishing, add the `NPM_TOKEN` secret to your repositor
 | Feature         | `feat(ecs): ...`    | Minor (0.1.0) |
 | Fix             | `fix(amplify): ...` | Patch (0.0.1) |
 
-## 📖 Examples
-
-Check out the [examples directory](./examples) for complete infrastructure setups:
-
-- **MFS Infrastructure** - Multi-app Amplify deployment with custom domains
-- **Basic Setup** - Simple single-app deployment
-- **Advanced Configuration** - Complex multi-environment setup
-
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](./CONTRIBUTING.md) for details.
