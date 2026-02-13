@@ -59,27 +59,31 @@ Current version: **0.3.0**
 ## 📦 Available Components
 
 - **Amplify** - Static site hosting and CI/CD
-- **S3** - Object storage buckets and configurations
-- **Route53** - DNS hosting and record management
 - **Cloudflare** - CDN and DNS records
-- **Amazon SES** - Automated Emails
+- **ECR** - Container registry management
+- **ECS** - Fargate container orchestration
+- **Image** - Docker image building
+- **Route53** - DNS hosting and record management
+- **S3** - Object storage with CloudFront CDN
+- **Secret** - AWS Secrets Manager
+- **SES** - Email services
+- **VPC** - Virtual private cloud networking
 
 ## 🏗️ Project Structure
 
 ```
 src/
 ├── amplify/           # AWS Amplify components
-│   ├── component.ts
-│   ├── types.ts
-│   ├── iam.ts
-│   └── index.ts
+├── cloudflare/        # Cloudflare components
+├── ecr/               # AWS ECR components
+├── ecs/               # AWS ECS Fargate components
+├── image/             # Docker image components
 ├── route53/           # AWS Route53 components
 ├── s3/                # AWS S3 components
-├── cloudflare/        # Cloudflare components
+├── secret/            # AWS Secrets Manager components
+├── ses/               # AWS SES components
+├── vpc/               # AWS VPC components
 └── utils/             # Shared utilities
-    ├── addEnvSuffix.ts
-    ├── domain.ts
-    └── tags.ts
 ```
 
 ## 🛠️ Development
