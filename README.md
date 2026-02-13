@@ -120,29 +120,6 @@ yarn format
 yarn format:check
 ```
 
-## 🔗 Linking your Repository for CI
-
-To set up continuous integration for your infrastructure repository:
-
-### 1. Create a new SSH key pair
-
-```bash
-# Generate a new SSH key pair for CI/CD
-ssh-keygen -t ed25519 -C "your_name@flatout.solutions" -f ~/.ssh/ci_deploy_key
-```
-
-### 2. Add private key to repository secrets
-
-- Go to your repository settings on GitHub
-- Navigate to "Secrets and variables" → "Actions"
-- Add the private key content as a repository secret named `SSH_PRIVATE_KEY`
-- Copy the content of `~/.ssh/ci_deploy_key` (the private key)
-
-### 3. Share public key with contributors
-
-- Copy the content of `~/.ssh/ci_deploy_key.pub` (the public key)
-- Share this public key with contributors of this repository
-
 ## 🚀 Release Automation
 
 Infra Foundry uses [semantic-release](https://semantic-release.gitbook.io/) for fully automated version management and package publishing. Versions are determined automatically based on commit messages following [Conventional Commits](https://www.conventionalcommits.org/).
