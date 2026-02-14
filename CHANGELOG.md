@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/0xhssn/infra-foundry/compare/v1.0.2...v1.0.3) (2026-02-14)
+
+
+### Bug Fixes
+
+* **release:** replace static version with npm badge ([67e6a54](https://github.com/0xhssn/infra-foundry/commit/67e6a5441f9e13ecfd84374943df9e00d57be2f8))
+
 ## [1.0.2](https://github.com/0xhssn/infra-foundry/compare/v1.0.1...v1.0.2) (2026-02-13)
 
 
