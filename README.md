@@ -1,10 +1,9 @@
 # 🏗️ Infra Foundry
 
+[![npm version](https://img.shields.io/npm/v/infra-foundry.svg)](https://www.npmjs.com/package/infra-foundry)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A platform-agnostic cloud infrastructure components library for modern applications. Built with TypeScript and Pulumi, Infra Foundry provides reusable, composable infrastructure components that work across AWS, Cloudflare, and other cloud providers.
-
-## 📊 Version
-
-Current version: **0.3.0**
 
 ## ✨ Features
 
