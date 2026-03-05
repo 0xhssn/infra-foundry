@@ -1,23 +1,20 @@
 ## [1.0.3](https://github.com/0xhssn/infra-foundry/compare/v1.0.2...v1.0.3) (2026-02-14)
 
-
 ### Bug Fixes
 
-* **release:** replace static version with npm badge ([67e6a54](https://github.com/0xhssn/infra-foundry/commit/67e6a5441f9e13ecfd84374943df9e00d57be2f8))
+- **release:** replace static version with npm badge ([67e6a54](https://github.com/0xhssn/infra-foundry/commit/67e6a5441f9e13ecfd84374943df9e00d57be2f8))
 
 ## [1.0.2](https://github.com/0xhssn/infra-foundry/compare/v1.0.1...v1.0.2) (2026-02-13)
 
-
 ### Bug Fixes
 
-* **release:** remove non-existent examples section from readme ([0524fdf](https://github.com/0xhssn/infra-foundry/commit/0524fdf81a0eecf3ff6d480df4b265d71d54db0d))
+- **release:** remove non-existent examples section from readme ([0524fdf](https://github.com/0xhssn/infra-foundry/commit/0524fdf81a0eecf3ff6d480df4b265d71d54db0d))
 
 ## [1.0.1](https://github.com/0xhssn/infra-foundry/compare/v1.0.0...v1.0.1) (2026-02-13)
 
-
 ### Bug Fixes
 
-* **release:** publish readme updates to npm ([f3827f0](https://github.com/0xhssn/infra-foundry/commit/f3827f091f40c8330672ef4b83dab9946e59d5c7))
+- **release:** publish readme updates to npm ([f3827f0](https://github.com/0xhssn/infra-foundry/commit/f3827f091f40c8330672ef4b83dab9946e59d5c7))
 
 # 1.0.0 (2026-02-13)
 
