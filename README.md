@@ -23,17 +23,9 @@ A platform-agnostic cloud infrastructure components library for modern applicati
 - In your infra project repo
 
   ```bash
-  # Install directly from GitHub
-  yarn add git+ssh://git@github.com/0xhssn/infra-foundry.git
-
-  # or add as dependency in package.json
-  "dependencies": {
-    ...
-    "infra-foundry": "git+ssh://git@github.com/0xhssn/infra-foundry.git",
-    ...
-  }
-  # and then install
-  yarn install
+  npm install infra-foundry
+  # or
+  yarn add infra-foundry
   ```
 
 - Create a Pulumi Organisation via Pulumi console
