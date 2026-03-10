@@ -53,6 +53,7 @@ aws configure
 ### Pulumi Setup
 
 1. **Create a Pulumi Account**
+
    - Sign up at [Pulumi Console](https://app.pulumi.com/)
    - Create an organization
 
