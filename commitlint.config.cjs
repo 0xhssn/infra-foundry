@@ -25,6 +25,7 @@ module.exports = {
       'always',
       [
         // AWS Components
+        'app-runner',
         'amplify',
         'cloudflare',
         'ecr',
