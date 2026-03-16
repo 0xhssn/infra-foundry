@@ -27,6 +27,7 @@ module.exports = {
         // AWS Components
         'amplify',
         'cloudflare',
+        'vercel',
         'ecr',
         'ecs',
         'image',

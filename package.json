@@ -41,10 +41,14 @@
     "@pulumi/aws": "^6.0.0",
     "@pulumi/awsx": "^2.0.0",
     "@pulumi/cloudflare": "^6.0.0",
-    "@pulumi/pulumi": "^3.0.0"
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumiverse/vercel": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "@pulumi/cloudflare": {
+      "optional": true
+    },
+    "@pulumiverse/vercel": {
       "optional": true
     }
   },
