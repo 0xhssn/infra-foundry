@@ -1,5 +1,5 @@
 import { iam } from '@pulumi/aws'
-import { ComponentResource } from '@pulumi/pulumi'
+import { ComponentResource, Output } from '@pulumi/pulumi'
 
 import { AppRunnerServiceArgs } from './types'
 
@@ -7,7 +7,7 @@ export function createAccessRole(
   name: string,
   tags: AppRunnerServiceArgs['tags'],
   parent: ComponentResource,
-) {
+): Output<string> {
   const accessRole = new iam.Role(
     `${name}-apprunner-access`,
     {
