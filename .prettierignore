@@ -3,4 +3,5 @@ bin/
 dist/
 coverage/
 .pulumi/
-yarn.lock 
+yarn.lock
+CHANGELOG.md
