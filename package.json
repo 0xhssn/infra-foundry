@@ -59,6 +59,7 @@
     }
   },
   "dependencies": {
+    "@pulumiverse/vercel": "^4.6.1",
     "typescript": "^5.0.0"
   },
   "devDependencies": {
