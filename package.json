@@ -1,6 +1,6 @@
 {
   "name": "infra-foundry",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Production-ready cloud infrastructure components for modern applications, built with TypeScript and Pulumi.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
