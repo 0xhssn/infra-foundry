@@ -1,7 +1,7 @@
 {
   "name": "infra-foundry",
-  "version": "1.0.3",
-  "description": "🌪️ Cloud infrastructure components library for modern applications",
+  "version": "1.0.4",
+  "description": "Production-ready cloud infrastructure components for modern applications, built with TypeScript and Pulumi.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -10,14 +10,20 @@
     "LICENSE"
   ],
   "keywords": [
-    "cloud",
-    "infrastructure",
     "pulumi",
     "aws",
     "cloudflare",
-    "components",
-    "iac"
+    "infrastructure",
+    "iac",
+    "devops",
+    "typescript",
+    "cloud",
+    "ecs",
+    "s3",
+    "vpc",
+    "route53"
   ],
+  "author": "Hamza Hassan <hassanhamza0101@gmail.com> (https://linkedin.com/in/hhssnn)",
   "contributors": [
     {
       "name": "Hamza Hassan",
@@ -26,9 +32,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/0xhssn/infra-foundry.git"
+    "url": "git+https://github.com/0xhssn/infra-foundry.git"
   },
-  "homepage": "https://github.com/0xhssn/infra-foundry#readme",
+  "homepage": "https://github.com/0xhssn/infra-foundry",
   "bugs": {
     "url": "https://github.com/0xhssn/infra-foundry/issues"
   },
