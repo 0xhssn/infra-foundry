@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-* **release:** use https for repository url in package.json ([246aa72](https://github.com/0xhssn/infra-foundry/commit/246aa724e960904475dcd6e619660408abb3525b))
+- **release:** use https for repository url in package.json ([246aa72](https://github.com/0xhssn/infra-foundry/commit/246aa724e960904475dcd6e619660408abb3525b))
 
 ## [1.0.3](https://github.com/0xhssn/infra-foundry/compare/v1.0.2...v1.0.3) (2026-02-14)
 
