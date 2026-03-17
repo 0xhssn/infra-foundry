@@ -1,4 +1,5 @@
 export * as amplify from './amplify'
+export * as vercel from './vercel'
 export * as cloudflare from './cloudflare'
 export * as s3 from './s3'
 export * as route53 from './route53'
