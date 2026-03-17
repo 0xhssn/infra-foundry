@@ -1487,6 +1487,13 @@
     tmp "^0.2.1"
     upath "^1.1.0"
 
+"@pulumiverse/vercel@^4.6.1":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/@pulumiverse/vercel/-/vercel-4.6.1.tgz#b77a79437a0b50110a8dcd1e069aa88e36e02adf"
+  integrity sha512-5I0eP0UwN9W3xx8rlXXlut7OITEGSCnq5F4PrnvMDsnEUX7Uw34t/I3/cfnARxlFeZcARVtXND0t8sRxDvPh3Q==
+  dependencies:
+    "@pulumi/pulumi" "^3.142.0"
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"

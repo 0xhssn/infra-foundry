@@ -1,4 +1,20 @@
+# [1.2.0](https://github.com/0xhssn/infra-foundry/compare/v1.1.0...v1.2.0) (2026-03-17)
+
+
+### Features
+
+* **rds:** add rds instance component ([ceb60a6](https://github.com/0xhssn/infra-foundry/commit/ceb60a63e619564d5d2abe3b62c4bf21b17d04ce))
+
+# [1.1.0](https://github.com/0xhssn/infra-foundry/compare/v1.0.4...v1.1.0) (2026-03-17)
+
+
+### Features
+
+* **vercel:** add @pulumiverse/vercel dependency ([0257f9d](https://github.com/0xhssn/infra-foundry/commit/0257f9d9a3086ea27eba5afea607467ab6366b57))
+* **vercel:** add vercelproject component ([4d1f74d](https://github.com/0xhssn/infra-foundry/commit/4d1f74d610970128fcd69de0f776257ce5351258))
+
 ## [1.0.4](https://github.com/0xhssn/infra-foundry/compare/v1.0.3...v1.0.4) (2026-03-05)
+
 
 ### Bug Fixes
 

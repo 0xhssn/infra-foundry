@@ -28,6 +28,7 @@ module.exports = {
         'app-runner',
         'amplify',
         'cloudflare',
+        'vercel',
         'ecr',
         'ecs',
         'image',
@@ -36,6 +37,7 @@ module.exports = {
         'secret',
         'ses',
         'vpc',
+        'rds',
         // Utilities
         'utils',
         // Meta scopes
