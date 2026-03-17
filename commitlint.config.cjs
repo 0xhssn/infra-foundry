@@ -36,6 +36,7 @@ module.exports = {
         'secret',
         'ses',
         'vpc',
+        'rds',
         // Utilities
         'utils',
         // Meta scopes
