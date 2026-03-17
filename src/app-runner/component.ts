@@ -9,7 +9,10 @@ export class AppRunnerService extends ComponentResource {
   public readonly serviceUrl: Output<string>
   public readonly serviceArn: Output<string>
 
-  constructor({ name, env = {}, secrets = {}, port, tags, ...args }: AppRunnerServiceArgs, opts?: ComponentResourceOptions) {
+  constructor(
+    { name, env = {}, secrets = {}, port, tags, ...args }: AppRunnerServiceArgs,
+    opts?: ComponentResourceOptions,
+  ) {
     super('infra-foundry:app-runner:AppRunnerService', name, {}, opts)
 
     const asc = new apprunner.AutoScalingConfigurationVersion(
