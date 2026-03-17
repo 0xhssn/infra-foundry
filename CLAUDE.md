@@ -30,6 +30,7 @@ Format: `<type>(<scope>): <subject>`
 **Scopes (required)**: `amplify`, `cloudflare`, `ecr`, `ecs`, `image`, `route53`, `s3`, `secret`, `ses`, `vpc`, `utils`, `deps`, `ci`, `release`
 
 Rules:
+
 - Scope is **mandatory** on every commit
 - Subject must be **lower-case**, no trailing period
 - Header max 100 chars
@@ -59,6 +60,7 @@ All components are re-exported from `src/index.ts`.
 ## Release Process
 
 `semantic-release` runs on CI for `main` (stable), `beta`, and `alpha` branches. Version bumps are derived from commit types:
+
 - `feat` → minor
 - `fix` / `perf` → patch
 - `!` breaking → major
