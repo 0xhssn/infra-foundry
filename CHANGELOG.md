@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/0xhssn/infra-foundry/compare/v1.2.0...v1.3.0) (2026-03-17)
+
+
+### Bug Fixes
+
+* **app-runner:** output typing ([596fa3a](https://github.com/0xhssn/infra-foundry/commit/596fa3a887825c9e7d621ca1f89fea7bf0fcf3ae))
+
+
+### Features
+
+* **app-runner:** add apprunnerservice component ([a2ce47a](https://github.com/0xhssn/infra-foundry/commit/a2ce47afbc2ec98216d217b0cbb5ffe69ab7e645))
+
 # [1.2.0](https://github.com/0xhssn/infra-foundry/compare/v1.1.0...v1.2.0) (2026-03-17)
 
 
