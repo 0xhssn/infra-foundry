@@ -1,6 +1,7 @@
 dist/
 node_modules/
 *.log
+package-lock.json
 
 examples/**/node_modules/
 examples/**/dist/
