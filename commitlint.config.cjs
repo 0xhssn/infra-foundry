@@ -36,6 +36,7 @@ module.exports = {
         's3',
         'secret',
         'ses',
+        'sqs',
         'vpc',
         'rds',
         // Utilities
