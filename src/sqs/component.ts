@@ -37,7 +37,7 @@ export class SqsQueue extends ComponentResource {
     let dlqArn: Input<string> | undefined
     let maxReceiveCount: number | undefined
 
-    if (config.deadLetter && 'enabled' in config.deadLetter && config.deadLetter.enabled) {
+    if (config.deadLetter?.enabled) {
       const dlqResourceName = `${resourceName}-dlq`
       const dlqAwsName = isFifo ? `${dlqResourceName}.fifo` : dlqResourceName
 
