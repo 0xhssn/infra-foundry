@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/0xhssn/infra-foundry/compare/v1.3.0...v1.4.0) (2026-05-01)
+
+
+### Features
+
+* **sqs:** add producer and consumer iam helpers ([fe38300](https://github.com/0xhssn/infra-foundry/commit/fe383007b0030525966332144f652b16ed16c4a5))
+* **sqs:** add sqsqueue component ([fd5b08f](https://github.com/0xhssn/infra-foundry/commit/fd5b08f52b64b3c3166bdb1b31d6ae53b74a4f11))
+* **sqs:** add sqsqueue type definitions ([ea12b2b](https://github.com/0xhssn/infra-foundry/commit/ea12b2b9d2ebd7c988047128489497db72ad632d))
+* **sqs:** export sqs namespace from package root ([9989ca6](https://github.com/0xhssn/infra-foundry/commit/9989ca62bff3a9bd4bf197430e2f2d3a6dc572f8))
+
 # [1.3.0](https://github.com/0xhssn/infra-foundry/compare/v1.2.0...v1.3.0) (2026-03-17)
 
 
