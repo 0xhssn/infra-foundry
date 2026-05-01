@@ -245,14 +245,18 @@ All commits **must** include a scope. Available scopes are based on the project 
 | Scope        | Description                    |
 | ------------ | ------------------------------ |
 | `amplify`    | AWS Amplify components         |
+| `app-runner` | AWS App Runner components      |
 | `cloudflare` | Cloudflare components          |
 | `ecr`        | AWS ECR components             |
 | `ecs`        | AWS ECS components             |
 | `image`      | Docker image components        |
+| `rds`        | AWS RDS components             |
 | `route53`    | AWS Route53 components         |
 | `s3`         | AWS S3 components              |
 | `secret`     | AWS Secrets Manager components |
 | `ses`        | AWS SES components             |
+| `sqs`        | AWS SQS components             |
+| `vercel`     | Vercel components              |
 | `vpc`        | AWS VPC components             |
 | `utils`      | Shared utilities               |
 | `deps`       | Dependency updates             |

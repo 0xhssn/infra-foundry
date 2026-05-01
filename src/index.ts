@@ -11,6 +11,7 @@ export * as vpc from './vpc'
 export * as ecr from './ecr'
 export * as image from './image'
 export * as secret from './secret'
+export * as sqs from './sqs'
 
 export * as domainUtils from './utils/domain'
 export * as EnvironmentUtils from './utils/environment'
