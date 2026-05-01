@@ -58,6 +58,7 @@ A platform-agnostic cloud infrastructure components library for modern applicati
 - **S3** - Object storage with CloudFront CDN
 - **Secret** - AWS Secrets Manager
 - **SES** - Email services
+- **SQS** - Message queues with optional DLQ wiring (standard and FIFO)
 - **VPC** - Virtual private cloud networking
 
 ## 🏗️ Project Structure
@@ -73,6 +74,7 @@ src/
 ├── s3/                # AWS S3 components
 ├── secret/            # AWS Secrets Manager components
 ├── ses/               # AWS SES components
+├── sqs/               # AWS SQS components
 ├── vpc/               # AWS VPC components
 └── utils/             # Shared utilities
 ```
