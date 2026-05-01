@@ -1,4 +1,4 @@
-import * as aws from '@pulumi/aws'
+import { sqs } from '@pulumi/aws'
 import {
   ComponentResource,
   ComponentResourceOptions,
@@ -20,78 +20,100 @@ const DEFAULT_DLQ_RETENTION = 1_209_600
 const DEFAULT_MAX_RECEIVE_COUNT = 5
 
 export class SqsQueue extends ComponentResource {
-  public readonly queue: aws.sqs.Queue
-  public readonly deadLetterQueue?: aws.sqs.Queue
+  public readonly queue: sqs.Queue
+  public readonly deadLetterQueue?: sqs.Queue
   public readonly url: Output<string>
   public readonly arn: Output<string>
   public readonly name: Output<string>
 
   constructor(config: SqsQueueConfig, opts?: ComponentResourceOptions) {
-    const resourceName = addEnvSuffix(config.name)
+    const {
+      name,
+      type,
+      visibilityTimeoutSeconds = DEFAULT_VISIBILITY_TIMEOUT,
+      messageRetentionSeconds = DEFAULT_MESSAGE_RETENTION,
+      maxMessageSize = DEFAULT_MAX_MESSAGE_SIZE,
+      delaySeconds = DEFAULT_DELAY,
+      receiveWaitTimeSeconds = DEFAULT_RECEIVE_WAIT,
+      contentBasedDeduplication,
+      deduplicationScope,
+      fifoThroughputLimit,
+      deadLetter,
+      kms,
+      policy,
+    } = config
+
+    const resourceName = addEnvSuffix(name)
     super('infra-foundry:sqs:SqsQueue', resourceName, {}, opts)
 
-    const isFifo = config.type === 'fifo'
+    const isFifo = type === 'fifo'
     const queueAwsName = isFifo ? `${resourceName}.fifo` : resourceName
     const tags = { ...commonTags, Component: 'SQS' }
 
     let dlqArn: Input<string> | undefined
     let maxReceiveCount: number | undefined
 
-    if (config.deadLetter?.enabled) {
+    if (deadLetter?.enabled) {
+      const {
+        retentionSeconds = DEFAULT_DLQ_RETENTION,
+        maxReceiveCount: dlqMax = DEFAULT_MAX_RECEIVE_COUNT,
+      } = deadLetter
+
       const dlqResourceName = `${resourceName}-dlq`
       const dlqAwsName = isFifo ? `${dlqResourceName}.fifo` : dlqResourceName
 
-      this.deadLetterQueue = new aws.sqs.Queue(
+      this.deadLetterQueue = new sqs.Queue(
         dlqResourceName,
         {
           name: dlqAwsName,
           fifoQueue: isFifo || undefined,
-          messageRetentionSeconds: config.deadLetter.retentionSeconds ?? DEFAULT_DLQ_RETENTION,
-          kmsMasterKeyId: config.kms?.kmsMasterKeyId,
-          kmsDataKeyReusePeriodSeconds: config.kms?.dataKeyReusePeriodSeconds,
+          messageRetentionSeconds: retentionSeconds,
+          kmsMasterKeyId: kms?.kmsMasterKeyId,
+          kmsDataKeyReusePeriodSeconds: kms?.dataKeyReusePeriodSeconds,
           tags: { ...tags, Role: 'DLQ' },
         },
         { parent: this },
       )
 
       dlqArn = this.deadLetterQueue.arn
-      maxReceiveCount = config.deadLetter.maxReceiveCount ?? DEFAULT_MAX_RECEIVE_COUNT
-    } else if (config.deadLetter && 'targetArn' in config.deadLetter) {
-      dlqArn = config.deadLetter.targetArn
-      maxReceiveCount = config.deadLetter.maxReceiveCount ?? DEFAULT_MAX_RECEIVE_COUNT
+      maxReceiveCount = dlqMax
+    } else if (deadLetter && 'targetArn' in deadLetter) {
+      const { targetArn, maxReceiveCount: extMax = DEFAULT_MAX_RECEIVE_COUNT } = deadLetter
+      dlqArn = targetArn
+      maxReceiveCount = extMax
     }
 
     const redrivePolicy = dlqArn
       ? jsonStringify({ deadLetterTargetArn: dlqArn, maxReceiveCount })
       : undefined
 
-    this.queue = new aws.sqs.Queue(
+    this.queue = new sqs.Queue(
       resourceName,
       {
         name: queueAwsName,
         fifoQueue: isFifo || undefined,
-        visibilityTimeoutSeconds: config.visibilityTimeoutSeconds ?? DEFAULT_VISIBILITY_TIMEOUT,
-        messageRetentionSeconds: config.messageRetentionSeconds ?? DEFAULT_MESSAGE_RETENTION,
-        maxMessageSize: config.maxMessageSize ?? DEFAULT_MAX_MESSAGE_SIZE,
-        delaySeconds: config.delaySeconds ?? DEFAULT_DELAY,
-        receiveWaitTimeSeconds: config.receiveWaitTimeSeconds ?? DEFAULT_RECEIVE_WAIT,
-        contentBasedDeduplication: isFifo ? config.contentBasedDeduplication : undefined,
-        deduplicationScope: isFifo ? config.deduplicationScope : undefined,
-        fifoThroughputLimit: isFifo ? config.fifoThroughputLimit : undefined,
-        kmsMasterKeyId: config.kms?.kmsMasterKeyId,
-        kmsDataKeyReusePeriodSeconds: config.kms?.dataKeyReusePeriodSeconds,
+        visibilityTimeoutSeconds,
+        messageRetentionSeconds,
+        maxMessageSize,
+        delaySeconds,
+        receiveWaitTimeSeconds,
+        contentBasedDeduplication: isFifo ? contentBasedDeduplication : undefined,
+        deduplicationScope: isFifo ? deduplicationScope : undefined,
+        fifoThroughputLimit: isFifo ? fifoThroughputLimit : undefined,
+        kmsMasterKeyId: kms?.kmsMasterKeyId,
+        kmsDataKeyReusePeriodSeconds: kms?.dataKeyReusePeriodSeconds,
         redrivePolicy,
         tags,
       },
       { parent: this },
     )
 
-    if (config.policy) {
-      new aws.sqs.QueuePolicy(
+    if (policy) {
+      new sqs.QueuePolicy(
         `${resourceName}-policy`,
         {
           queueUrl: this.queue.url,
-          policy: config.policy,
+          policy,
         },
         { parent: this },
       )
