@@ -1,6 +1,6 @@
 import * as aws from '@pulumi/aws'
 import * as awsx from '@pulumi/awsx'
-import { Output } from '@pulumi/pulumi'
+import { Input, Output } from '@pulumi/pulumi'
 
 export interface EcsClusterConfig {
   name: string
@@ -18,6 +18,7 @@ export interface EcsServiceConfig {
   secretName?: string | Output<string>
   sesIdentityEmail?: string
   bucketNames?: (string | Output<string>)[]
+  sqsQueueArns?: Input<Input<string>[]>
   dnsConfig: EcsDnsConfig
   healthCheckConfig: EcsHealthCheckConfig
 }
@@ -41,7 +42,7 @@ export interface VpcConfig {
 
 export type EcsTaskRoleConfig = Pick<
   EcsServiceConfig,
-  'secretName' | 'bucketNames' | 'sesIdentityEmail'
+  'secretName' | 'bucketNames' | 'sesIdentityEmail' | 'sqsQueueArns'
 > & {
   name: string
 }

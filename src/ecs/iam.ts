@@ -5,9 +5,10 @@ import { EcsTaskRoleConfig } from './types'
 import { attachS3PolicyToRole } from '../s3/iam'
 import { attachSecretsPolicyToRole } from '../secret/iam'
 import { attachSesPolicyToRole } from '../ses/iam'
+import { attachSqsConsumerPolicyToRole, attachSqsProducerPolicyToRole } from '../sqs/iam'
 
 export function createEcsTaskRole(
-  { name, secretName, bucketNames, sesIdentityEmail }: EcsTaskRoleConfig,
+  { name, secretName, bucketNames, sesIdentityEmail, sqsQueueArns }: EcsTaskRoleConfig,
   parent: ComponentResource,
 ): iam.Role {
   const taskRole = new iam.Role(
@@ -40,6 +41,10 @@ export function createEcsTaskRole(
       parent,
     )
   if (sesIdentityEmail) attachSesPolicyToRole(name, taskRole, accountId, sesIdentityEmail, parent)
+  if (sqsQueueArns) {
+    attachSqsConsumerPolicyToRole(name, taskRole, sqsQueueArns, parent)
+    attachSqsProducerPolicyToRole(name, taskRole, sqsQueueArns, parent)
+  }
 
   return taskRole
 }

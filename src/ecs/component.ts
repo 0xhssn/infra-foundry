@@ -140,6 +140,7 @@ export class EcsService extends ComponentResource {
                 secretName: config.secretName,
                 sesIdentityEmail: config.sesIdentityEmail,
                 bucketNames: config.bucketNames,
+                sqsQueueArns: config.sqsQueueArns,
               },
               this,
             ).arn,
