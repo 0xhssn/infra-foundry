@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/0xhssn/infra-foundry/compare/v1.4.0...v1.5.0) (2026-05-11)
+
+
+### Features
+
+* **ecs:** grant sqs access on task role via opt-in config ([5e6cfec](https://github.com/0xhssn/infra-foundry/commit/5e6cfece6b14bd32bcb909468efe6bc9e0524be7))
+
 # [1.4.0](https://github.com/0xhssn/infra-foundry/compare/v1.3.0...v1.4.0) (2026-05-01)
 
 
