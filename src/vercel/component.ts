@@ -19,6 +19,13 @@ export class VercelProject extends ComponentResource {
       teamId,
       customDomain,
       gitRepo,
+      gitRepoType = 'github',
+      productionBranch,
+      rootDirectory,
+      buildCommand,
+      installCommand,
+      outputDirectory,
+      nodeVersion,
       environmentVariables = [],
     } = config
 
@@ -27,7 +34,20 @@ export class VercelProject extends ComponentResource {
       {
         name: config.name,
         framework,
-        ...(gitRepo ? { gitRepository: { type: 'github', repo: gitRepo } } : {}),
+        ...(gitRepo
+          ? {
+              gitRepository: {
+                type: gitRepoType,
+                repo: gitRepo,
+                ...(productionBranch ? { productionBranch } : {}),
+              },
+            }
+          : {}),
+        ...(rootDirectory !== undefined ? { rootDirectory } : {}),
+        ...(buildCommand !== undefined ? { buildCommand } : {}),
+        ...(installCommand !== undefined ? { installCommand } : {}),
+        ...(outputDirectory !== undefined ? { outputDirectory } : {}),
+        ...(nodeVersion !== undefined ? { nodeVersion } : {}),
         ...(teamId ? { teamId } : {}),
       },
       { parent: this },
