@@ -13,5 +13,12 @@ export interface VercelProjectConfig {
   teamId?: string
   customDomain?: string
   gitRepo?: string
+  gitRepoType?: 'github' | 'gitlab' | 'bitbucket'
+  productionBranch?: string
+  rootDirectory?: string
+  buildCommand?: Input<string>
+  installCommand?: Input<string>
+  outputDirectory?: Input<string>
+  nodeVersion?: Input<string>
   environmentVariables?: VercelEnvVar[]
 }
