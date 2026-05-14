@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/0xhssn/infra-foundry/compare/v1.5.0...v1.6.0) (2026-05-14)
+
+
+### Features
+
+* **vercel:** support root directory, production branch, and build settings ([c5d4843](https://github.com/0xhssn/infra-foundry/commit/c5d484398495207e6ac4b25a3263fa80016012b0))
+
 # [1.5.0](https://github.com/0xhssn/infra-foundry/compare/v1.4.0...v1.5.0) (2026-05-11)
 
 
