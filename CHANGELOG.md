@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/0xhssn/infra-foundry/compare/v1.6.0...v1.7.0) (2026-05-18)
+
+
+### Features
+
+* **vercel:** support git comments, preview comments, and ignored build step ([4b6551d](https://github.com/0xhssn/infra-foundry/commit/4b6551d0f0a4b2e8d2b214af7b382dfbb7e8986a))
+
 # [1.6.0](https://github.com/0xhssn/infra-foundry/compare/v1.5.0...v1.6.0) (2026-05-14)
 
 
