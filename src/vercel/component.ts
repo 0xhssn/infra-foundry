@@ -26,6 +26,9 @@ export class VercelProject extends ComponentResource {
       installCommand,
       outputDirectory,
       nodeVersion,
+      gitComments,
+      previewComments,
+      ignoreCommand,
       environmentVariables = [],
     } = config
 
@@ -48,6 +51,9 @@ export class VercelProject extends ComponentResource {
         ...(installCommand !== undefined ? { installCommand } : {}),
         ...(outputDirectory !== undefined ? { outputDirectory } : {}),
         ...(nodeVersion !== undefined ? { nodeVersion } : {}),
+        ...(gitComments ? { gitComments } : {}),
+        ...(previewComments !== undefined ? { previewComments } : {}),
+        ...(ignoreCommand !== undefined ? { ignoreCommand } : {}),
         ...(teamId ? { teamId } : {}),
       },
       { parent: this },
