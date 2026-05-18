@@ -7,6 +7,11 @@ export interface VercelEnvVar {
   sensitive?: boolean
 }
 
+export interface VercelGitCommentsConfig {
+  onCommit: boolean
+  onPullRequest: boolean
+}
+
 export interface VercelProjectConfig {
   name: string
   framework?: string
@@ -20,5 +25,8 @@ export interface VercelProjectConfig {
   installCommand?: Input<string>
   outputDirectory?: Input<string>
   nodeVersion?: Input<string>
+  gitComments?: VercelGitCommentsConfig
+  previewComments?: boolean
+  ignoreCommand?: Input<string>
   environmentVariables?: VercelEnvVar[]
 }
