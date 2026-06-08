@@ -15,6 +15,9 @@ export default [
         sourceType: 'module',
         project: './tsconfig.json',
       },
+      globals: {
+        require: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
