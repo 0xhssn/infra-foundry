@@ -39,6 +39,8 @@ module.exports = {
         'sqs',
         'vpc',
         'rds',
+        'identity-center',
+        'organizations',
         // Utilities
         'utils',
         // Meta scopes
