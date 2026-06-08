@@ -1,3 +1,12 @@
+## [1.8.1](https://github.com/0xhssn/infra-foundry/compare/v1.8.0...v1.8.1) (2026-06-08)
+
+
+### Bug Fixes
+
+* **cloudflare:** lazy-load optional peer to defer require-time crash ([a30f804](https://github.com/0xhssn/infra-foundry/commit/a30f804626bb093d8e35ef890dd2dff2a2c232d5))
+* **utils:** make context.region lazy to avoid eager config require ([d71989a](https://github.com/0xhssn/infra-foundry/commit/d71989a851a2434c2270de3024c6712d1d5b49e7))
+* **vercel:** lazy-load optional peer to defer require-time crash ([453b602](https://github.com/0xhssn/infra-foundry/commit/453b60287d0a9d439583e1e7eab2d883b85076b0))
+
 # [1.8.0](https://github.com/0xhssn/infra-foundry/compare/v1.7.0...v1.8.0) (2026-06-08)
 
 
