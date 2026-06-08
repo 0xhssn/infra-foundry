@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/0xhssn/infra-foundry/compare/v1.7.0...v1.8.0) (2026-06-08)
+
+
+### Features
+
+* **identity-center:** add admin, permission set, and team members components ([945ba69](https://github.com/0xhssn/infra-foundry/commit/945ba69883eed7e5f24b6f8b11bbf4ce3517ab15))
+* **organizations:** add organizational units component ([84d5da6](https://github.com/0xhssn/infra-foundry/commit/84d5da6030a7d1c9dfca0aa525a2d50e2a75974a))
+* **utils:** add helper to build root-scoped urns for aliases ([ddbbe30](https://github.com/0xhssn/infra-foundry/commit/ddbbe305722e97c90eddd1fc498cd5cc6f8f17ea))
+
 # [1.7.0](https://github.com/0xhssn/infra-foundry/compare/v1.6.0...v1.7.0) (2026-05-18)
 
 
