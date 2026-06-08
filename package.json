@@ -80,6 +80,7 @@
     "@pulumi/pulumi": "^3.174.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
@@ -87,8 +88,10 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-import": "^2.31.0",
     "husky": "^9.1.7",
+    "jest": "^30.4.2",
     "prettier": "^3.5.3",
-    "semantic-release": "^24.2.1"
+    "semantic-release": "^24.2.1",
+    "ts-jest": "^29.4.11"
   },
   "scripts": {
     "build": "tsc",
