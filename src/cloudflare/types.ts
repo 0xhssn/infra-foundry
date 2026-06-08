@@ -1,4 +1,4 @@
-import { DnsRecord, GetZoneResult } from '@pulumi/cloudflare'
+import type { DnsRecord, GetZoneResult } from '@pulumi/cloudflare'
 import { Input, Output } from '@pulumi/pulumi'
 
 export interface CloudflareNameserverConfig {
