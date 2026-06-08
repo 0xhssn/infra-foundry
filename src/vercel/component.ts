@@ -1,7 +1,31 @@
 import { ComponentResource, ComponentResourceOptions, Output } from '@pulumi/pulumi'
-import { Project, ProjectEnvironmentVariable, ProjectDomain } from '@pulumiverse/vercel'
+import type { Project, ProjectEnvironmentVariable, ProjectDomain } from '@pulumiverse/vercel'
 
 import { VercelProjectConfig } from './types'
+
+type VercelSdk = typeof import('@pulumiverse/vercel')
+
+// `@pulumiverse/vercel` is an optional peer. Load it lazily so consumers
+// that don't use this component aren't forced to install it; the require
+// only happens on first instantiation, and a missing peer surfaces as a
+// helpful construction-time error instead of a load-time crash.
+let cachedSdk: VercelSdk | null | undefined
+function loadVercelSdk(): VercelSdk {
+  if (cachedSdk === undefined) {
+    try {
+      cachedSdk = require('@pulumiverse/vercel') as VercelSdk
+    } catch {
+      cachedSdk = null
+    }
+  }
+  if (!cachedSdk) {
+    throw new Error(
+      'VercelProject requires the optional peer @pulumiverse/vercel. ' +
+        'Install it with `npm install @pulumiverse/vercel` or `yarn add @pulumiverse/vercel`.',
+    )
+  }
+  return cachedSdk
+}
 
 export class VercelProject extends ComponentResource {
   public readonly project: Project
@@ -13,6 +37,8 @@ export class VercelProject extends ComponentResource {
 
   constructor(name: string, config: VercelProjectConfig, opts?: ComponentResourceOptions) {
     super('infra-foundry:vercel:VercelProject', name, {}, opts)
+
+    const vercel = loadVercelSdk()
 
     const {
       framework = 'nextjs',
@@ -32,7 +58,7 @@ export class VercelProject extends ComponentResource {
       environmentVariables = [],
     } = config
 
-    this.project = new Project(
+    this.project = new vercel.Project(
       name,
       {
         name: config.name,
@@ -61,7 +87,7 @@ export class VercelProject extends ComponentResource {
 
     this.environmentVariables = environmentVariables.map((envVar) => {
       const resourceName = `${name}-env-${envVar.key.toLowerCase().replace(/_/g, '-')}-${envVar.targets.join('-')}`
-      return new ProjectEnvironmentVariable(
+      return new vercel.ProjectEnvironmentVariable(
         resourceName,
         {
           projectId: this.project.id,
@@ -76,7 +102,7 @@ export class VercelProject extends ComponentResource {
     })
 
     if (customDomain) {
-      this.domainResource = new ProjectDomain(
+      this.domainResource = new vercel.ProjectDomain(
         `${name}-domain`,
         {
           projectId: this.project.id,
