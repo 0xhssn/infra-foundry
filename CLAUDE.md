@@ -56,6 +56,21 @@ All components are re-exported from `src/index.ts`.
 - Target: `ES2019`, module: `CommonJS`
 - No semicolons, single quotes (enforced by ESLint + Prettier)
 - Import order enforced: builtin → external → internal (alphabetical)
+- Prefer named submodule imports from `@pulumi/aws` over wildcard imports. The named form makes the dependency surface explicit and reads more cleanly when several submodules are in use.
+
+  ```ts
+  // ✅ Do
+  import { ssoadmin, organizations } from '@pulumi/aws'
+
+  new ssoadmin.PermissionSet(...)
+  new organizations.OrganizationalUnit(...)
+
+  // ❌ Don't
+  import * as aws from '@pulumi/aws'
+
+  new aws.ssoadmin.PermissionSet(...)
+  new aws.organizations.OrganizationalUnit(...)
+  ```
 
 ## Release Process
 
