@@ -51,8 +51,11 @@ module.exports = {
     ],
     // Require scope for all commits
     'scope-empty': [2, 'never'],
-    // Enforce lowercase for scope
-    'scope-case': [2, 'always', 'kebab-case'],
+    // Enforce lowercase for scope. Accept both kebab-case ('app-runner',
+    // 'identity-center') and lower-case ('s3', 'route53', 'sqs') —
+    // commitlint's kebab-case rule rejects scopes with digits, so plain
+    // lower-case is needed to satisfy the digit-bearing scope-enum entries.
+    'scope-case': [2, 'always', ['kebab-case', 'lower-case']],
     // Enforce lowercase for subject
     'subject-case': [2, 'always', 'lower-case'],
     // Don't end subject with period
