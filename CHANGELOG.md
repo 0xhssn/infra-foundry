@@ -1,3 +1,22 @@
+# [1.9.0](https://github.com/0xhssn/infra-foundry/compare/v1.8.1...v1.9.0) (2026-06-09)
+
+
+### Features
+
+* **amplify:** add legacy alias helper ([5c877de](https://github.com/0xhssn/infra-foundry/commit/5c877de4064566d5c2fa3f4e5bbafc4dc3fc3807))
+* **app-runner:** add legacy alias helper ([c55bd6b](https://github.com/0xhssn/infra-foundry/commit/c55bd6b4d4fe3920634e7d446b3370a6078a5f6e))
+* **cloudflare:** add legacy alias helper ([3e9721f](https://github.com/0xhssn/infra-foundry/commit/3e9721f4b5c5197c7dce500264029047cc3cddae))
+* **ecr:** add legacy alias helper ([b7fb2fc](https://github.com/0xhssn/infra-foundry/commit/b7fb2fc2bed4177c13fc693ca2664479b20a4e1c))
+* **ecs:** add legacy alias helper ([97f5618](https://github.com/0xhssn/infra-foundry/commit/97f561887def90b72137ffbf2f8d9c36527bb02b))
+* **rds:** add legacy alias helper ([ea744ed](https://github.com/0xhssn/infra-foundry/commit/ea744eddf37dfdd3d1d9db538ba8f1d1f9d79571))
+* **route53:** add legacy alias helper ([8f6105d](https://github.com/0xhssn/infra-foundry/commit/8f6105dc5f68fca45fecde4abbb7cfaf9c468fc1))
+* **s3:** add legacy alias helper ([bc51ff4](https://github.com/0xhssn/infra-foundry/commit/bc51ff48ae85fae1dfe3286dabf9ce018684d452))
+* **secret:** add legacy alias helper ([b7068a9](https://github.com/0xhssn/infra-foundry/commit/b7068a9069a245b70c106a3e50c613877e27014d))
+* **ses:** add legacy alias helper ([1683c91](https://github.com/0xhssn/infra-foundry/commit/1683c9155a5d23b877359f17c59aac00b384833e))
+* **sqs:** add legacy alias helper ([3dee9d2](https://github.com/0xhssn/infra-foundry/commit/3dee9d26a7d0dbd6150ebda674e542abcfc29d57))
+* **vercel:** add legacy alias helper ([d9dfa3c](https://github.com/0xhssn/infra-foundry/commit/d9dfa3cca58431a02905dffcbb2262f4e610b1b3))
+* **vpc:** add legacy alias helper ([89ad277](https://github.com/0xhssn/infra-foundry/commit/89ad277ad54558991744e3f7385b86f49eede00e))
+
 ## [1.8.1](https://github.com/0xhssn/infra-foundry/compare/v1.8.0...v1.8.1) (2026-06-08)
 
 
