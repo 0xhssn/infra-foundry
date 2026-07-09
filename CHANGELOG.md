@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/0xhssn/infra-foundry/compare/v1.9.0...v1.10.0) (2026-07-09)
+
+
+### Features
+
+* **image:** support a custom dockerfile path ([99d8387](https://github.com/0xhssn/infra-foundry/commit/99d8387bd9eb31a4b4eaf51b609b9c7b4482dc97))
+* **lambda:** add container-image lambda component ([28007d4](https://github.com/0xhssn/infra-foundry/commit/28007d47f9fa96cae326ce340544f35dfc25b35d))
+
 # [1.9.0](https://github.com/0xhssn/infra-foundry/compare/v1.8.1...v1.9.0) (2026-06-09)
 
 
