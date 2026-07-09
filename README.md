@@ -59,6 +59,7 @@ import { s3, vpc, rds } from 'infra-foundry'
 | [ECS](#ecs)                         | AWS        | Fargate cluster and service orchestration          |
 | [Docker Image](#docker-image)       | Docker     | Build and push images to a registry                |
 | [Identity Center](#identity-center) | AWS        | SSO admin, permission sets, and team membership    |
+| [Lambda](#lambda)                   | AWS        | Container-image functions and their execution role |
 | [Organizations](#organizations)     | AWS        | Organizational units under the org root            |
 | [RDS](#rds)                         | AWS        | Managed relational database instances              |
 | [Route 53](#route-53)               | AWS        | Hosted zones and DNS records                       |
@@ -190,6 +191,72 @@ const admin = new identityCenter.IdentityCenterAdmin('admin', {
   adminEmail: 'jane@acme.com',
   awsRegion: 'us-east-1',
 })
+```
+
+## Lambda
+
+Create a container-image Lambda function together with its execution role.
+
+```ts
+import { ecr, image, lambda } from 'infra-foundry'
+
+const repo = new ecr.EcrRepository({ name: 'worker' })
+
+const img = new image.DockerImage({
+  name: 'worker',
+  imageName: repo.repository.repositoryUrl,
+  buildContext: './worker',
+  registry: ecr.fetchEcrRegistryAuthorization(),
+})
+
+const fn = new lambda.LambdaFunction({
+  name: 'worker',
+  imageUri: img.repoDigest,
+  timeoutSeconds: 900,
+  memorySize: 2048,
+  reservedConcurrency: 20,
+  logRetentionDays: 14,
+  environment: { LOG_LEVEL: 'info' },
+})
+```
+
+The role it creates grants CloudWatch Logs, plus VPC networking when `vpcConfig` is supplied. Nothing else.
+
+Two defaults are worth knowing. `memorySize` falls back to Lambda's own default of 128 MB, which is rarely enough for a container image, and `architecture` defaults to `x86_64`, which must match the platform the image was built for.
+
+Without `logRetentionDays`, AWS creates the log group on first invocation and keeps its logs forever. Supplying it creates the group up front with the retention you ask for.
+
+### Attaching an event source
+
+The component creates no event sources and grants no access to other AWS services. Attach those through the exposed `function` and `role`, so the component's configuration never grows a field per AWS service:
+
+```ts
+import { lambda, sqs } from 'infra-foundry'
+import * as aws from '@pulumi/aws'
+
+const queue = new sqs.SqsQueue({ name: 'jobs' })
+const fn = new lambda.LambdaFunction({ name: 'worker', imageUri })
+
+const consumer = sqs.attachSqsConsumerPolicyToRole('worker', fn.role, [queue.arn], fn)
+
+new aws.lambda.EventSourceMapping(
+  'worker-event-source',
+  {
+    eventSourceArn: queue.arn,
+    functionName: fn.function.arn,
+    batchSize: 1,
+    functionResponseTypes: ['ReportBatchItemFailures'],
+  },
+  { dependsOn: [consumer] },
+)
+```
+
+The `dependsOn` is required. AWS checks that the role can call `ReceiveMessage` at the moment the event-source mapping is created, so the consumer policy has to exist first. `functionResponseTypes` is what makes SQS honour a handler that reports partial batch failures; omit it and messages your handler reported as failed are deleted anyway.
+
+To grant any other permission, attach a policy to the role:
+
+```ts
+new aws.iam.RolePolicy('read-bucket', { role: fn.role.name, policy })
 ```
 
 ## Organizations
@@ -336,6 +403,7 @@ src/
 ├── ecs/               # AWS ECS Fargate components
 ├── identity-center/   # AWS IAM Identity Center (SSO) components
 ├── image/             # Docker image components
+├── lambda/            # AWS Lambda components
 ├── organizations/     # AWS Organizations components
 ├── rds/               # AWS RDS components
 ├── route53/           # AWS Route 53 components
