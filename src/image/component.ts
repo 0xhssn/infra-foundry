@@ -12,11 +12,12 @@ export interface DockerImageArgs {
   }>
   skipPush?: boolean
   buildArgs?: Record<string, string | Output<string>>
+  dockerfile?: string
 }
 
 export class DockerImage extends Image {
   constructor(
-    { name, imageName, buildContext, registry, skipPush, buildArgs }: DockerImageArgs,
+    { name, imageName, buildContext, registry, skipPush, buildArgs, dockerfile }: DockerImageArgs,
     opts?: ComponentResourceOptions,
   ) {
     super(
@@ -25,6 +26,7 @@ export class DockerImage extends Image {
         imageName,
         build: {
           context: buildContext,
+          dockerfile,
           args: buildArgs,
           platform: 'linux/amd64',
         },

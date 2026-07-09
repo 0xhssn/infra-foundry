@@ -32,6 +32,7 @@ module.exports = {
         'ecr',
         'ecs',
         'image',
+        'lambda',
         'route53',
         's3',
         'secret',
