@@ -164,6 +164,18 @@ const img = new image.DockerImage({
 })
 ```
 
+By default the Dockerfile is read from `<buildContext>/Dockerfile`. Pass `dockerfile` when one build context produces more than one image:
+
+```ts
+const worker = new image.DockerImage({
+  name: 'worker',
+  imageName: workerRepo.repository.repositoryUrl,
+  buildContext: './app',
+  dockerfile: './app/Dockerfile.worker',
+  registry: ecr.fetchEcrRegistryAuthorization(),
+})
+```
+
 ## Identity Center
 
 Manage AWS IAM Identity Center (SSO): bootstrap an admin user, define permission sets, and assign team members to accounts.
