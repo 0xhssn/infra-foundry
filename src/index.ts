@@ -14,6 +14,7 @@ export * as secret from './secret'
 export * as sqs from './sqs'
 export * as identityCenter from './identity-center'
 export * as organizations from './organizations'
+export * as lambda from './lambda'
 
 export * as domainUtils from './utils/domain'
 export * as EnvironmentUtils from './utils/environment'
